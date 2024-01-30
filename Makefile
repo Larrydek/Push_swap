@@ -2,16 +2,16 @@ NAME = push_swap
 
 SRC = src
 
-MY_SOURCES  = $(SRC)/*.c
+MY_SOURCES  = ./$(SRC)/*
 
 MY_OBJECTS = $(MY_SOURCES:.c=.o)
 
 CFLAGS = -Wall -Werror -Wextra
 
-LIBFT_DIR = ./lib/Libft
-LIBFT = $(LIBFT_DIR)/libft
+LIBFT_DIR = ./lib/libft
+LIBFT = $(LIBFT_DIR)/
 
-PRINTF_DIR = ./lib/libftprintf
+PRINTF_DIR = ./lib/printf/src
 PRINTF = $(PRINTF_DIR)/libftprintf
 
 all: $(NAME)
