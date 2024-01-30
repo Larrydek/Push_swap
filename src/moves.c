@@ -6,49 +6,42 @@
 /*   By: jde-clee <jde-clee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 01:54:40 by jde-clee          #+#    #+#             */
-/*   Updated: 2024/01/27 21:37:05 by jde-clee         ###   ########.fr       */
+/*   Updated: 2024/01/30 01:26:03 by jde-clee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 
-stack	*ft_swap(stack *a)
+t_stack	*ft_swap(t_stack *a)
 {
-	int i;
-	stack *aux;
+	int aux;
 
-	i = 0;
-	while(i < ft_lstsize(a) - 1)
-	{
-		a = a->next;
-		i++;
-	}
-	aux = a;
-	a = ft_lstlast(a);
+	aux = a->content;
+	a->content = a->next->content;
 	a = a->next;
-	a = aux;
+	a->content = aux;
 	return (a);
 }
 
-void	*ft_push(stack *a, stack *b)
+void	*ft_push(t_stack *a, t_stack *b)
 {
 	if (ft_lstsize(b) > 0)
-		b = ft_lstlast(a);
+		ft_lstadd_front(b, a);
 	ft_delone(a);
 }
 
-void	*ft_rotate(stack *a)
+void	*ft_rotate(t_stack *a)
 {
-	stack *aux;
+	t_stack *aux;
 
 	aux = ft_lstlast(a);
 	ft_delone(a);
-	ft_lstadd_front(&a, aux);
+	ft_lstadd_back(a, aux);
 }
 
-void	*ft_reverse_rotate(stack *a)
+void	*ft_reverse_rotate(t_stack *a)
 {
-	stack *aux;
+	t_stack *aux;
 
 	aux = &a[0];
 	ft_lstclear(&a[0]);

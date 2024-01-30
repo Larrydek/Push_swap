@@ -6,13 +6,13 @@
 /*   By: jde-clee <jde-clee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/25 19:33:50 by jde-clee          #+#    #+#             */
-/*   Updated: 2024/01/27 21:51:51 by jde-clee         ###   ########.fr       */
+/*   Updated: 2024/01/28 19:31:29 by jde-clee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/libft.h"
 
-void	ft_lstiter(t_list *lst, void (*f)(void *))
+void	ft_lstiter(t_stack *lst, void (*f)(void *))
 {
 	while (lst)
 	{

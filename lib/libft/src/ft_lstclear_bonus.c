@@ -6,15 +6,15 @@
 /*   By: jde-clee <jde-clee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/25 18:56:52 by jde-clee          #+#    #+#             */
-/*   Updated: 2024/01/27 21:51:47 by jde-clee         ###   ########.fr       */
+/*   Updated: 2024/01/28 19:31:25 by jde-clee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/libft.h"
 
-void	ft_lstclear(t_list **lst, void (*del)(void *))
+void	ft_lstclear(t_stack **lst, void (*del)(void *))
 {
-	t_list	*aux;
+	t_stack	*aux;
 
 	while (*lst && lst)
 	{

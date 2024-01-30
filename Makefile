@@ -1,19 +1,18 @@
 NAME = push_swap
 
-SRC = push_swap.c \
+SRC = src
 
+MY_SOURCES  = $(SRC)/*.c
 
-OBJS = $(SRC:.c=.o)
+MY_OBJECTS = $(MY_SOURCES:.c=.o)
 
 CFLAGS = -Wall -Werror -Wextra
-MLXFLAGS = -lmlx -framework OpenGL -framework AppKit #-g3 -fsanitize=address
 
+LIBFT_DIR = ./lib/Libft
+LIBFT = $(LIBFT_DIR)/libft
 
-LIBFT_DIR = ./Libft_BONUS
-LIBFT = $(LIBFT_DIR)/libft_BONUS.a
-
-PRINTF_DIR = ./libft_printf
-PRINTF = $(PRINTF_DIR)/libft_printf.a
+PRINTF_DIR = ./lib/libftprintf
+PRINTF = $(PRINTF_DIR)/libftprintf
 
 all: $(NAME)
 
@@ -22,13 +21,13 @@ $(LIBFT):
 
 $(NAME): $(OBJS) $(PRINTF)
 	gcc $(CFLAGS) $(OBJS) $(MLXFLAGS) \
-	-L$(LIBFT_DIR) -lft_BONUS -L$(PRINTF_DIR) -lft_printf -o $(NAME)
+	-L$(LIBFT_DIR) -l$(LIBFT) -L$(PRINTF_DIR) -l$(PRINTF) -o $(NAME)
 
 %.o: %.c
 	gcc $(CFLAGS) -I$(LIBFT_DIR) -I$(PRINTF_DIR) -c $< -o $@
 
 clean:
-	rm -f $(OBJS)
+	rm -f $(MY_OBJECTS)
 	make clean -C $(LIBFT_DIR)
 	make clean -C $(PRINTF_DIR)
 
@@ -38,3 +37,5 @@ fclean: clean
 	make fclean -C $(PRINTF_DIR)
 
 re: fclean all
+
+.PHONY: all clean fclean re

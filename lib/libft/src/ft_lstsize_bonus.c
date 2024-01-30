@@ -6,15 +6,15 @@
 /*   By: jde-clee <jde-clee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 02:33:29 by jde-clee          #+#    #+#             */
-/*   Updated: 2024/01/27 21:52:02 by jde-clee         ###   ########.fr       */
+/*   Updated: 2024/01/28 19:31:42 by jde-clee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/libft.h"
 
-int	ft_lstsize(t_list *lst)
+int	ft_lstsize(t_stack *lst)
 {
-	t_list	*tmp;
+	t_stack	*tmp;
 	int		i;
 
 	tmp = lst;

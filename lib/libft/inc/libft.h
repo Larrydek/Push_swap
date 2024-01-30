@@ -6,7 +6,7 @@
 /*   By: jde-clee <jde-clee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 20:36:19 by jde-clee          #+#    #+#             */
-/*   Updated: 2024/01/26 01:39:44 by jde-clee         ###   ########.fr       */
+/*   Updated: 2024/01/28 19:34:16 by jde-clee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,11 @@
 # include <stdlib.h>
 # include <limits.h>
 
-typedef struct s_list
+typedef struct s_data
 {
-	void			*content;
-	struct s_list	*next;
-}	t_list;
+	int content;
+	struct s_data *next;
+} t_stack;
 
 int		ft_isalpha(int c);
 int		ft_isdigit(int c);
@@ -61,14 +61,14 @@ void	ft_putstr_fd(char *s, int fd);
 void	ft_putendl_fd(char *s, int fd);
 void	ft_putnbr_fd(int n, int fd);
 
-t_list	*ft_lstnew(void *content);
-void	ft_lstadd_front(t_list **lst, t_list *new);
-int		ft_lstsize(t_list *lst);
-t_list	*ft_lstlast(t_list *lst);
-void	ft_lstadd_back(t_list **lst, t_list *new);
-void	ft_lstdelone(t_list *lst, void (*del)(void *));
-void	ft_lstclear(t_list **lst, void (*del)(void *));
-void	ft_lstiter(t_list *lst, void (*f)(void *));
-t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
+t_stack	*ft_lstnew(void *content);
+void	ft_lstadd_front(t_stack **lst, t_stack *new);
+int		ft_lstsize(t_stack *lst);
+t_stack	*ft_lstlast(t_stack *lst);
+void	ft_lstadd_back(t_stack **lst, t_stack *new);
+void	ft_lstdelone(t_stack *lst, void (*del)(void *));
+void	ft_lstclear(t_stack **lst, void (*del)(void *));
+void	ft_lstiter(t_stack *lst, void (*f)(void *));
+t_stack	*ft_lstmap(t_stack *lst, void *(*f)(void *), void (*del)(void *));
 
 #endif

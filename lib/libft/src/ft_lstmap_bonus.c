@@ -6,16 +6,16 @@
 /*   By: jde-clee <jde-clee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/25 19:39:41 by jde-clee          #+#    #+#             */
-/*   Updated: 2024/01/27 21:51:57 by jde-clee         ###   ########.fr       */
+/*   Updated: 2024/01/28 19:31:38 by jde-clee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/libft.h"
 
-t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
+t_stack	*ft_lstmap(t_stack *lst, void *(*f)(void *), void (*del)(void *))
 {
-	t_list	*new_list;
-	t_list	*nodo;
+	t_stack	*new_list;
+	t_stack	*nodo;
 
 	new_list = NULL;
 	nodo = NULL;

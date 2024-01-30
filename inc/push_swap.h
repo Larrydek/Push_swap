@@ -6,7 +6,7 @@
 /*   By: jde-clee <jde-clee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 21:19:20 by jde-clee          #+#    #+#             */
-/*   Updated: 2024/01/27 21:09:47 by jde-clee         ###   ########.fr       */
+/*   Updated: 2024/01/29 21:12:01 by jde-clee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,13 +23,13 @@
 
 typedef struct s_data
 {
-    int content;
-    struct s_data *next;
-} stack;
+	int content;
+	struct s_data *next;
+} t_stack;
 
-stack	*ft_swap(stack *a);
-void	*ft_push(stack *a, stack *b);
-void	*ft_rotate(stack *a);
-void	*ft_reverse_rotate(stack *a);
+t_stack	*ft_swap(t_stack *a);
+void	*ft_push(t_stack *a,t_stack *b);
+void	*ft_rotate(t_stack *a);
+void	*ft_reverse_rotate(t_stack *a);
 
 #endif
