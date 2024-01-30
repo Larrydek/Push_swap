@@ -4,7 +4,7 @@ NAME = libft.a
 
 SRC = src
 
-MY_SOURCES  = $(SRC)/*.c
+MY_SOURCES  = ./$(SRC)/*.c
 
 MY_OBJECTS = $(MY_SOURCES:.c=.o)
 
