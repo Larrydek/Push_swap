@@ -19,7 +19,7 @@ $(NAME): $(MY_OBJECTS)
 	gcc $(CFLAGS) -c $< -o $@
 
 clean: 
-	rm -f $(MY_OBJECTS)
+	rm -f $(MY_OBJECTS).o
 
 fclean: clean
 	rm -f $(NAME)
