@@ -4,7 +4,7 @@ NAME = libft.a
 
 SRC = src
 
-MY_SOURCES  = ./$(SRC)/*.c
+MY_SOURCES  = ./$(SRC)/*
 
 MY_OBJECTS = $(MY_SOURCES:.c=.o)
 
@@ -19,7 +19,7 @@ $(NAME): $(MY_OBJECTS)
 	gcc $(CFLAGS) -c $< -o $@
 
 clean: 
-	rm -f $(MY_OBJECTS)
+	rm -f $(MY_OBJECTS).o
 
 fclean: clean
 	rm -f $(NAME)

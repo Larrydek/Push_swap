@@ -11,7 +11,7 @@ CFLAGS = -Wall -Werror -Wextra
 LIBFT_DIR = ./lib/libft
 LIBFT = $(LIBFT_DIR)/
 
-PRINTF_DIR = ./lib/printf/src
+PRINTF_DIR = ../lib/printf
 PRINTF = $(PRINTF_DIR)/libftprintf
 
 all: $(NAME)
@@ -27,7 +27,7 @@ $(NAME): $(OBJS) $(PRINTF)
 	gcc $(CFLAGS) -I$(LIBFT_DIR) -I$(PRINTF_DIR) -c $< -o $@
 
 clean:
-	rm -f $(MY_OBJECTS)
+	rm -f $(MY_OBJECTS).o
 	make clean -C $(LIBFT_DIR)
 	make clean -C $(PRINTF_DIR)
 

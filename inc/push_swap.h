@@ -6,7 +6,7 @@
 /*   By: jde-clee <jde-clee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 21:19:20 by jde-clee          #+#    #+#             */
-/*   Updated: 2024/01/29 21:12:01 by jde-clee         ###   ########.fr       */
+/*   Updated: 2024/02/07 19:04:04 by jde-clee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@
 # include <string.h>
 # include <stdlib.h>
 # include <limits.h>
-# include "libft.h"
-# include "ft_printf.h"
+# include "../lib/libft/inc/libft.h"
+# include "../lib/printf/inc/ft_printf.h"
 
 typedef struct s_data
 {
