@@ -1,1 +1,1 @@
-Libft completa + funciones de manipulaciones de listas
+Libft completa + funciones de manipulaciones de stackas

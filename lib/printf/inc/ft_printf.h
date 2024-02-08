@@ -17,7 +17,7 @@
 # include <stdarg.h>
 
 int		ft_printf(char const *type, ...);
-void	ft_format(char const *type, va_list args, int *len);
+void	ft_format(char const *type, va_stack args, int *len);
 void	ft_hex_len(unsigned int n, int *len);
 size_t	ft_int_len(int n);
 void	ft_putnbr(int n);

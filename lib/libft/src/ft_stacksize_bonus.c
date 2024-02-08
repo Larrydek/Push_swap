@@ -1,21 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstdelone_bonus.c                               :+:      :+:    :+:   */
+/*   ft_stacksize_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jde-clee <jde-clee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/29 01:47:42 by jde-clee          #+#    #+#             */
-/*   Updated: 2024/01/28 19:31:27 by jde-clee         ###   ########.fr       */
+/*   Created: 2023/11/28 02:33:29 by jde-clee          #+#    #+#             */
+/*   Updated: 2024/01/28 19:31:42 by jde-clee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/libft.h"
 
-void	ft_lstdelone(t_stack *lst, void (*del)(void *))
+int	ft_stacksize(t_stack *stack)
 {
-	if (!lst || !del)
-		return ;
-	(*del)(lst->content);
-	free(lst);
+	t_stack	*tmp;
+	int		i;
+
+	tmp = stack;
+	i = 0;
+	while (tmp)
+	{
+		tmp = tmp->next;
+		i++;
+	}
+	return (i);
 }

@@ -1,40 +1,40 @@
 NAME = push_swap
 
-SRC = src
+MY_SOURCES  = ./src/*
 
-MY_SOURCES  = ./$(SRC)/*
-
-MY_OBJECTS = $(MY_SOURCES:.c=.o)
+MY_OBJS = $(MY_SOURCES:.c=.o)
 
 CFLAGS = -Wall -Werror -Wextra
 
 LIBFT_DIR = ./lib/libft
-LIBFT = $(LIBFT_DIR)/
+PRINTF_DIR = ./lib/printf
 
-PRINTF_DIR = ../lib/printf
-PRINTF = $(PRINTF_DIR)/libftprintf
+LIBFT = $(LIBFT_DIR)/libft.a
+PRINTF = $(PRINTF_DIR)/libftprintf.a
 
 all: $(NAME)
 
 $(LIBFT):
 	make -C $(LIBFT_DIR)
 
-$(NAME): $(OBJS) $(PRINTF)
-	gcc $(CFLAGS) $(OBJS) $(MLXFLAGS) \
-	-L$(LIBFT_DIR) -l$(LIBFT) -L$(PRINTF_DIR) -l$(PRINTF) -o $(NAME)
+$(PRINTF):
+	make -C $(PRINTF_DIR)
+
+$(NAME): $(MY_OBJS) $(LIBFT) $(PRINTF)
+	gcc $(CFLAGS) $(MY_OBJS) $(LIBFT) $(PRINTF) -o $(NAME)
 
 %.o: %.c
 	gcc $(CFLAGS) -I$(LIBFT_DIR) -I$(PRINTF_DIR) -c $< -o $@
 
 clean:
-	rm -f $(MY_OBJECTS).o
-	make clean -C $(LIBFT_DIR)
-	make clean -C $(PRINTF_DIR)
+	rm -f $(MY_OBJS)
+	make clean -C $(LIBFT_DIR) || true
+	make clean -C $(PRINTF_DIR) || true
 
 fclean: clean
 	rm -f $(NAME)
-	make fclean -C $(LIBFT_DIR)
-	make fclean -C $(PRINTF_DIR)
+	rm -f $(LIBFT_DIR)/*.o
+	rm -f $(PRINTF_DIR)/*.o
 
 re: fclean all
 

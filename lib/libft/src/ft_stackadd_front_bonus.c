@@ -1,25 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstnew_bonus.c                                  :+:      :+:    :+:   */
+/*   ft_stackadd_front_bonus.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jde-clee <jde-clee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/23 21:52:19 by jde-clee          #+#    #+#             */
-/*   Updated: 2024/01/28 19:31:40 by jde-clee         ###   ########.fr       */
+/*   Created: 2023/11/23 22:18:46 by jde-clee          #+#    #+#             */
+/*   Updated: 2024/01/28 19:31:22 by jde-clee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/libft.h"
 
-t_stack	*ft_lstnew(void *content)
+void	ft_stackadd_front(t_stack **stack, t_stack *new)
 {
-	t_stack	*list;
+	t_stack	*tmp;
 
-	list = malloc(sizeof(t_stack));
-	if (!list)
-		return (list);
-	list->content = content;
-	list->next = NULL;
-	return (list);
+	if (!stack || !new)
+		return ;
+	tmp = *stack;
+	*stack = new;
+	new->next = tmp;
 }

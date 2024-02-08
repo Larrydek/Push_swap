@@ -12,7 +12,7 @@
 
 #include "../inc/ft_printf.h"
 
-void	ft_format(char const *type, va_list args, int *len)
+void	ft_format(char const *type, va_stack args, int *len)
 {
 	if (*type == 'c')
 		ft_char(va_arg(args, int), len);
@@ -36,7 +36,7 @@ void	ft_format(char const *type, va_list args, int *len)
 
 int	ft_printf(char const *type, ...)
 {
-	va_list	args;
+	va_stack	args;
 	int		len;
 
 	va_start (args, type);

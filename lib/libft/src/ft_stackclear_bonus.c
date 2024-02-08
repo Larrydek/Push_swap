@@ -1,21 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_back_bonus.c                             :+:      :+:    :+:   */
+/*   ft_stackclear_bonus.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jde-clee <jde-clee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/28 03:46:05 by jde-clee          #+#    #+#             */
-/*   Updated: 2024/01/28 19:31:13 by jde-clee         ###   ########.fr       */
+/*   Created: 2024/01/25 18:56:52 by jde-clee          #+#    #+#             */
+/*   Updated: 2024/01/28 19:31:25 by jde-clee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/libft.h"
 
-void	ft_lstadd_back(t_stack **lst, t_stack *new)
+void	ft_stackclear(t_stack **stack, void (*del)(void *))
 {
-	if (*lst)
-		ft_lstlast(*lst)->next = new;
-	else
-		*lst = new;
+	t_stack	*aux;
+
+	while (*stack && stack)
+	{
+		aux = (*stack)->next;
+		ft_stackdelone(*stack, del);
+		*stack = aux;
+	}
 }

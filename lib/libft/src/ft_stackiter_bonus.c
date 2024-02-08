@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstiter_bonus.c                                 :+:      :+:    :+:   */
+/*   ft_stackiter_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jde-clee <jde-clee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,11 +12,11 @@
 
 #include "../inc/libft.h"
 
-void	ft_lstiter(t_stack *lst, void (*f)(void *))
+void	ft_stackiter(t_stack *stack, void (*f)(void *))
 {
-	while (lst)
+	while (stack)
 	{
-		(*f)(lst->content);
-		lst = lst->next;
+		(*f)(stack->content);
+		stack = stack->next;
 	}
 }

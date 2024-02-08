@@ -1,28 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_stacklast_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jde-clee <jde-clee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/23 20:54:53 by jde-clee          #+#    #+#             */
-/*   Updated: 2024/01/30 01:19:41 by jde-clee         ###   ########.fr       */
+/*   Created: 2023/11/28 03:34:45 by jde-clee          #+#    #+#             */
+/*   Updated: 2024/01/28 19:31:35 by jde-clee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/push_swap.h"
+#include "../inc/libft.h"
 
-int	main(int argc, char **argv)
+t_stack	*ft_stacklast(t_stack *stack)
 {
-	int i;
-    t_stack *stack_a;
+	t_stack	*tmp;
 
-	i = 1;
-    stack_a = ft_lstnew(argv[1]);
-	while (i < argc - 1)
-	{
-        ft_lstadd_back(stack_a, argv[i]);
-        i++;
-	}
-    return (0);
+	if (!stack)
+		return (NULL);
+	tmp = stack;
+	while (tmp->next)
+		tmp = tmp->next;
+	return (tmp);
 }

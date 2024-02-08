@@ -21,10 +21,11 @@
 # include "../lib/libft/inc/libft.h"
 # include "../lib/printf/inc/ft_printf.h"
 
-typedef struct s_data
+typedef struct s_stack
 {
 	int content;
-	struct s_data *next;
+	int index;
+	struct s_stack *next;
 } t_stack;
 
 t_stack	*ft_swap(t_stack *a);

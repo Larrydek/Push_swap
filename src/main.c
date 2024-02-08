@@ -1,28 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstsize_bonus.c                                 :+:      :+:    :+:   */
+/*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jde-clee <jde-clee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/28 02:33:29 by jde-clee          #+#    #+#             */
-/*   Updated: 2024/01/28 19:31:42 by jde-clee         ###   ########.fr       */
+/*   Created: 2023/11/23 20:54:53 by jde-clee          #+#    #+#             */
+/*   Updated: 2024/01/30 01:19:41 by jde-clee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/libft.h"
+#include "../inc/push_swap.h"
 
-int	ft_lstsize(t_stack *lst)
+int main(int argc, char **argv)
 {
-	t_stack	*tmp;
-	int		i;
+	t_stack *a;
+	t_stack *b;
+	char **numbers;
 
-	tmp = lst;
-	i = 0;
-	while (tmp)
-	{
-		tmp = tmp->next;
-		i++;
-	}
-	return (i);
+	numbers = arg_cleaner(argv + 1);
+	if (!arg_checker(numbers))
+		return (write(1, "Error\n", 6), 0);
+	ft_printf("Procesando...\n");
+	a = parser(numbers);
+	free(numbers);
+	sort(&a, &b);
+	free(a);
+	free(b);
+	return (0);
 }
