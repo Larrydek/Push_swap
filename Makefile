@@ -21,7 +21,7 @@ $(PRINTF):
 	make -C $(PRINTF_DIR)
 
 $(NAME): $(MY_OBJS) $(LIBFT) $(PRINTF)
-	gcc $(CFLAGS) $(MY_OBJS) $(LIBFT) $(PRINTF) -o $(NAME)
+	gcc $(CFLAGS) $(MY_OBJS) -L$(LIBFT_DIR) $(LIBFT) -L$(PRINTF_DIR) $(PRINTF) -o $(NAME)
 
 %.o: %.c
 	gcc $(CFLAGS) -I$(LIBFT_DIR) -I$(PRINTF_DIR) -c $< -o $@
@@ -33,8 +33,8 @@ clean:
 
 fclean: clean
 	rm -f $(NAME)
-	rm -f $(LIBFT_DIR)/*.o
-	rm -f $(PRINTF_DIR)/*.o
+	rm -f $(LIBFT_DIR)
+	rm -f $(PRINTF_DIR)
 
 re: fclean all
 

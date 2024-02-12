@@ -1,0 +1,305 @@
+!<arch>
+ft_print_hex.c  1707758969  7846  4219  100644  1417      `
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_print_hex.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jde-clee <jde-clee@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/09/19 23:34:34 by jde-clee          #+#    #+#             */
+/*   Updated: 2024/01/27 21:55:47 by jde-clee         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "../inc/ft_printf.h"
+
+void	ft_hex(unsigned int n, const char format, int *len)
+{
+	if (n >= 16)
+	{
+		ft_hex(n / 16, format, len);
+		ft_hex(n % 16, format, len);
+	}
+	else
+	{
+		if (n <= 9)
+			ft_char(n + '0', len);
+		else
+		{
+			if (format == 'x')
+				ft_char((n - 10) + 'a', len);
+			if (format == 'X')
+				ft_char((n - 10) + 'A', len);
+		}
+	}
+}
+
+int	*ft_print_hex(unsigned int num, const char format, int *len)
+{
+	if (num == 0)
+	{
+		write(1, "0", 1);
+		(*len)++;
+	}
+	else
+		ft_hex(num, format, len);
+	return (len);
+}
+
+ft_print_num.c  1707758969  7846  4219  100644  1539      `
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_print_num.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jde-clee <jde-clee@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/09/19 23:36:08 by jde-clee          #+#    #+#             */
+/*   Updated: 2024/01/27 21:55:41 by jde-clee         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "../inc/ft_printf.h"
+
+size_t	ft_int_len(int n)
+{
+	int	i;
+
+	i = 0;
+	if (n == -2147483648)
+		return (11);
+	if (n == 0)
+		return (i);
+	if (n < 0)
+	{
+		n = -n;
+		i++;
+	}
+	while (n > 0)
+	{
+		n /= 10;
+		i++;
+	}
+	return (i);
+}
+
+void	ft_putnbr(int n)
+{
+	char	s[2];
+	long	num;
+
+	num = n;
+	if (num < 0)
+	{
+		write(1, "-", 1);
+		num = -num;
+	}
+	if (num >= 0)
+	{
+		if (n == 0)
+			write(1, "0", 1);
+		else
+		{
+			s[0] = (num % 10) + 48;
+			num = num / 10;
+			if (num > 0)
+				ft_putnbr(num);
+			write(1, &s[0], 1);
+		}
+	}
+}
+
+int	*ft_print_num(int num, int *len)
+{
+	if (num == 0)
+		(*len)++;
+	*len += ft_int_len(num);
+	ft_putnbr(num);
+	return (len);
+}
+
+ft_print_uint.c 1707758969  7846  4219  100644  1255      `
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_print_uint.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jde-clee <jde-clee@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/09/19 23:36:01 by jde-clee          #+#    #+#             */
+/*   Updated: 2024/01/27 21:55:48 by jde-clee         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "../inc/ft_printf.h"
+
+void	ft_unsigned(unsigned int n, int *len)
+{
+	if (n > 9)
+		ft_print_uint(n / 10, len);
+	if (n <= 9)
+	{
+		ft_char(n + '0', len);
+		return ;
+	}
+	ft_char((n % 10) + '0', len);
+}
+
+int	*ft_print_uint(unsigned int num, int *len)
+{
+	ft_unsigned(num, len);
+	if (num == 0)
+		return (len);
+	while (num > 0)
+		num = num / 10;
+	return (len);
+}
+
+ft_print_void.c 1707758969  7846  4219  100644  1283      `
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_print_void.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jde-clee <jde-clee@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/10/02 23:11:28 by jde-clee          #+#    #+#             */
+/*   Updated: 2024/01/27 21:55:50 by jde-clee         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "../inc/ft_printf.h"
+
+void	ft_void(unsigned long int n, int *len)
+{
+	if (n >= 16)
+	{
+		ft_void(n / 16, len);
+		ft_void(n % 16, len);
+	}
+	else
+	{
+		if (n <= 9)
+			ft_char(n + '0', len);
+		else
+			ft_char((n - 10) + 'a', len);
+	}
+}
+
+int	*ft_print_void(unsigned long int ptr, int *len)
+{
+	if (ptr == 0)
+	{
+		write(1, "0", 1);
+		(*len)++;
+	}
+	else
+		ft_void(ptr, len);
+	return (len);
+}
+
+ft_printf.c     1707759210  7846  4219  100644  1804      `
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jde-clee <jde-clee@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/09/19 23:35:43 by jde-clee          #+#    #+#             */
+/*   Updated: 2024/02/12 18:33:30 by jde-clee         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "../inc/ft_printf.h"
+
+void	ft_format(char const *type, va_list args, int *len)
+{
+	if (*type == 'c')
+		ft_char(va_arg(args, int), len);
+	else if (*type == 's')
+		ft_string(va_arg(args, char *), len);
+	else if (*type == 'd' || *type == 'i')
+		ft_print_num(va_arg(args, int), len);
+	else if (*type == 'u')
+		ft_print_uint(va_arg(args, int), len);
+	else if (*type == 'x' || *type == 'X')
+		ft_print_hex(va_arg(args, unsigned int), *type, len);
+	else if (*type == '%')
+		ft_char('%', len);
+	else if (*type == 'p')
+	{
+		write(1, "0x", 2);
+		(*len) += 2;
+		ft_print_void(va_arg(args, unsigned long int), len);
+	}
+}
+
+int	ft_printf(char const *type, ...)
+{
+	va_list	args;
+	int		len;
+
+	va_start (args, type);
+	len = 0;
+	while (*type)
+	{
+		if (*type == '%')
+		{
+			type++;
+			ft_format(type, args, &len);
+			type++;
+		}
+		else
+		{
+			write(1, type, 1);
+			len++;
+			type++;
+		}
+	}
+	va_end (args);
+	return (len);
+}
+utils.c         1707758969  7846  4219  100644  1222      `
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   utils.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jde-clee <jde-clee@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/09/18 20:12:27 by jde-clee          #+#    #+#             */
+/*   Updated: 2024/01/27 21:55:55 by jde-clee         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "../inc/ft_printf.h"
+
+void	ft_char(char c, int *len)
+{
+	write(1, &c, 1);
+	(*len)++;
+}
+
+void	ft_string(char *s, int *len)
+{
+	if (!s)
+	{
+		write(1, "(null)", 6);
+		(*len) += 6;
+		return ;
+	}
+	while (*s)
+	{
+		write(1, s, 1);
+		s++;
+		(*len)++;
+	}
+}
+
+void	ft_float(int n, int *len)
+{
+	*len += ft_int_len(n);
+	ft_putnbr(n);
+}
