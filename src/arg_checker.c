@@ -1,24 +1,27 @@
-/* int arg_checker(char **argv)
-{
-    while(argv)
-    {
-        if ()
-    }
-}
-
 char *arg_cleaner(char **argv)
 {
     char **numbers;
     char *aux;
     int i;
+    int j;
 
-    i = 0;
+    i = 1;
+    j = 0;
 
     while(argv[i])
     {
-        aux = ft_strjoin(aux, argv[i]);
-        aux = ft_strjoin(aux, " ");
+        numbers = ft_split(argv[i], " ");
+        while (numbers[j])
+        {
+            
+        }
     }
     return (aux);
 }
- */
+
+int arg_checker(char **argv)
+{
+    while(argv)
+    {
+    }
+}
