@@ -1,6 +1,6 @@
 NAME = push_swap
 
-MY_SOURCES  = $(shell find ./src/ -name *.c)
+MY_SOURCES  = $(shell find ./src -name *.c)
 
 MY_OBJS = $(MY_SOURCES:.c=.o)
 

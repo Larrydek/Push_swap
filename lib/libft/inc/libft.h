@@ -6,7 +6,7 @@
 /*   By: jde-clee <jde-clee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 20:36:19 by jde-clee          #+#    #+#             */
-/*   Updated: 2024/02/12 19:11:50 by jde-clee         ###   ########.fr       */
+/*   Updated: 2024/02/12 20:57:54 by jde-clee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,19 +18,6 @@
 # include <string.h>
 # include <stdlib.h>
 # include <limits.h>
-
-/* typedef struct s_data
-{
-	int content;
-	struct s_data *next;
-} t_data;
- */
-typedef struct s_stack
-{
-	int content;
-	int index;
-	struct s_stack *next;
-} t_stack;
 
 int		ft_isalpha(int c);
 int		ft_isdigit(int c);
@@ -67,15 +54,5 @@ void	ft_putchar_fd(char c, int fd);
 void	ft_putstr_fd(char *s, int fd);
 void	ft_putendl_fd(char *s, int fd);
 void	ft_putnbr_fd(int n, int fd);
-
-t_stack	*ft_stacknew(void *content);
-void	ft_stackadd_front(t_stack **stack, t_stack *new);
-int		ft_stacksize(t_stack *stack);
-t_stack	*ft_stacklast(t_stack *stack);
-void	ft_stackadd_back(t_stack **stack, t_stack *new);
-void	ft_stackdelone(t_stack *stack, void (*del)(void *));
-void	ft_stackclear(t_stack **stack, void (*del)(void *));
-void	ft_stackiter(t_stack *stack, void (*f)(void *));
-t_stack	*ft_stackmap(t_stack *stack, void *(*f)(void *), void (*del)(void *));
 
 #endif
