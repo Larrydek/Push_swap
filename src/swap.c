@@ -1,6 +1,6 @@
 #include "../inc/push_swap.h"
 
-t_stack	*ft_swap(t_stack *a)
+/* t_stack	*ft_swap(t_stack *a)
 {
 	int aux;
 
@@ -11,4 +11,4 @@ t_stack	*ft_swap(t_stack *a)
 	a = a->next;
 	a->content = aux;
 	return (a);
-}
+} */

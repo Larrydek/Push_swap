@@ -1,6 +1,6 @@
 NAME = push_swap
 
-MY_SOURCES  = ./src/*
+MY_SOURCES  = $(shell find ./src/ -name *.c)
 
 MY_OBJS = $(MY_SOURCES:.c=.o)
 
@@ -21,20 +21,20 @@ $(PRINTF):
 	make -C $(PRINTF_DIR)
 
 $(NAME): $(MY_OBJS) $(LIBFT) $(PRINTF)
-	gcc $(CFLAGS) $(MY_OBJS) -L$(LIBFT_DIR) $(LIBFT) -L$(PRINTF_DIR) $(PRINTF) -o $(NAME)
+	gcc $(CFLAGS) $(MY_OBJS) $(LIBFT) $(PRINTF) -o $(NAME)
 
 %.o: %.c
 	gcc $(CFLAGS) -I$(LIBFT_DIR) -I$(PRINTF_DIR) -c $< -o $@
 
 clean:
-	rm -f $(MY_OBJS)/*.o
+	rm -f $(MY_OBJS)
 	make clean -C $(LIBFT_DIR)
 	make clean -C $(PRINTF_DIR)
 
 fclean: clean
 	rm -f $(NAME)
-	rm -f $(LIBFT_DIR)
-	rm -f $(PRINTF_DIR)
+	rm -f $(LIBFT)
+	rm -f $(PRINTF)
 
 re: fclean all
 

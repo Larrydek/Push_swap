@@ -2,7 +2,7 @@ LIB = ar rc
 
 NAME = libftprintf.a
 
-MY_SOURCES  = ./src/*
+MY_SOURCES  = $(shell find ./src -name *.c)
 
 MY_OBJECTS = $(MY_SOURCES:.c=.o)
 
@@ -17,7 +17,7 @@ $(NAME): $(MY_OBJECTS)
 	gcc $(CFLAGS) -c $< -o $@
 
 clean: 
-	rm -f $(MY_OBJECTS)/*.o
+	rm -f $(MY_OBJECTS)
 
 fclean: clean
 	rm -f $(NAME)

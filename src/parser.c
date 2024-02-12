@@ -1,4 +1,4 @@
-#include "../inc/push_swap.h"
+/* #include "../inc/push_swap.h"
 
 t_stack    *parser(char **argv)
 {
@@ -15,4 +15,4 @@ t_stack    *parser(char **argv)
         i++;
     }
     return (a);
-}
+} */

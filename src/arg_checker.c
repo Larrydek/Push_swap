@@ -1,4 +1,4 @@
-int arg_checker(char **argv)
+/* int arg_checker(char **argv)
 {
     while(argv)
     {
@@ -21,3 +21,4 @@ char *arg_cleaner(char **argv)
     }
     return (aux);
 }
+ */

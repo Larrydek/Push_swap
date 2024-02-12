@@ -6,7 +6,7 @@
 /*   By: jde-clee <jde-clee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 20:36:19 by jde-clee          #+#    #+#             */
-/*   Updated: 2024/01/28 19:34:16 by jde-clee         ###   ########.fr       */
+/*   Updated: 2024/02/12 19:11:50 by jde-clee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,17 @@
 # include <stdlib.h>
 # include <limits.h>
 
-typedef struct s_data
+/* typedef struct s_data
 {
 	int content;
 	struct s_data *next;
+} t_data;
+ */
+typedef struct s_stack
+{
+	int content;
+	int index;
+	struct s_stack *next;
 } t_stack;
 
 int		ft_isalpha(int c);
