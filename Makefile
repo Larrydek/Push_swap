@@ -27,9 +27,9 @@ $(NAME): $(MY_OBJS) $(LIBFT) $(PRINTF)
 	gcc $(CFLAGS) -I$(LIBFT_DIR) -I$(PRINTF_DIR) -c $< -o $@
 
 clean:
-	rm -f $(MY_OBJS)
-	make clean -C $(LIBFT_DIR) || true
-	make clean -C $(PRINTF_DIR) || true
+	rm -f $(MY_OBJS)/*.o
+	make clean -C $(LIBFT_DIR)
+	make clean -C $(PRINTF_DIR)
 
 fclean: clean
 	rm -f $(NAME)

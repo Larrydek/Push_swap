@@ -6,13 +6,13 @@
 /*   By: jde-clee <jde-clee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/19 23:35:43 by jde-clee          #+#    #+#             */
-/*   Updated: 2024/01/27 21:55:52 by jde-clee         ###   ########.fr       */
+/*   Updated: 2024/02/12 18:33:30 by jde-clee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/ft_printf.h"
 
-void	ft_format(char const *type, va_stack args, int *len)
+void	ft_format(char const *type, va_list args, int *len)
 {
 	if (*type == 'c')
 		ft_char(va_arg(args, int), len);
@@ -36,7 +36,7 @@ void	ft_format(char const *type, va_stack args, int *len)
 
 int	ft_printf(char const *type, ...)
 {
-	va_stack	args;
+	va_list	args;
 	int		len;
 
 	va_start (args, type);
