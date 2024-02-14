@@ -12,17 +12,18 @@
 
 #include "../inc/push_swap.h"
 
-t_stack    *parser(int *numbers)
+t_stack    *parser(int *numbers, t_stack *a)
 {
     t_stack *new;
-    t_stack *a;
     int i;
 
     i = 0;
-    while(numbers[i])
+    while(i < a->height)
     {
+        ft_printf("STACK: %i\n", a->height);
         new = ft_stacknew(numbers[i]);
         ft_stackadd_back(&a, new);
+        ft_printf("STACK: %i\n", a->height);
         free(new);
         i++;
     }

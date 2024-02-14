@@ -6,7 +6,7 @@
 /*   By: jde-clee <jde-clee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/31 18:16:41 by jde-clee          #+#    #+#             */
-/*   Updated: 2024/02/14 00:07:36 by jde-clee         ###   ########.fr       */
+/*   Updated: 2024/02/14 19:06:03 by jde-clee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,8 +41,8 @@ int	ft_atoi(const char *str)
 
 long	ft_atol(char *str)
 {
-	int	i;
-	int	sign;
+	long	i;
+	long	sign;
 	long	number;
 
 	i = 0;
