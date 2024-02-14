@@ -1,27 +1,44 @@
-char *arg_cleaner(char **argv)
-{
-    char **numbers;
-    char *aux;
-    int i;
-    int j;
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   arg_checker.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jde-clee <jde-clee@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/02/13 19:21:50 by jde-clee          #+#    #+#             */
+/*   Updated: 2024/02/13 19:21:50 by jde-clee         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
+#include "../inc/push_swap.h"
+
+int *arg_checker(char **argv)
+{
+    int     *numbers;
+    char    **char_nums;
+    char    *aux;
+    int     i;
+
+    numbers = NULL;
+    aux = argv[0];
     i = 1;
-    j = 0;
 
     while(argv[i])
     {
-        numbers = ft_split(argv[i], " ");
-        while (numbers[j])
-        {
-            
-        }
+        aux = ft_strjoin(aux, argv[i]);
+        i++;
     }
-    return (aux);
-}
-
-int arg_checker(char **argv)
-{
-    while(argv)
+    i = 0;
+    char_nums = ft_split(aux, ' ');
+    free(aux);
+    while (numbers[i])
     {
+        if (ft_atol(char_nums[i]) < INT_MIN || ft_atol(char_nums[i]) > INT_MAX)
+            return (free(numbers), NULL);
+        numbers[i] = ft_atoi(char_nums[i]);
+        ft_printf("STACK: %u\n", numbers[i]);
+        i++;
     }
+    free(char_nums);
+    return (numbers);
 }

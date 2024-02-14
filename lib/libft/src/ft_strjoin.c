@@ -6,7 +6,7 @@
 /*   By: jde-clee <jde-clee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/07 04:26:31 by jde-clee          #+#    #+#             */
-/*   Updated: 2024/01/27 21:52:37 by jde-clee         ###   ########.fr       */
+/*   Updated: 2024/02/14 00:36:54 by jde-clee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,13 +27,3 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	ft_strlcat(s_final, (char *)s2, len_s1 + len_s2 + 1);
 	return (s_final);
 }
-
-/* int main()
-{
-	char const *s2 = "ARGENTINA";
-	char const *s1 = "\0\0\0\0\0\0\0";
-	
-	printf("%s", ft_strjoin(s1, s2));
-	
-	return (0);
-} */
