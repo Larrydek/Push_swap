@@ -6,7 +6,7 @@
 /*   By: jde-clee <jde-clee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 21:19:20 by jde-clee          #+#    #+#             */
-/*   Updated: 2024/02/14 21:56:53 by jde-clee         ###   ########.fr       */
+/*   Updated: 2024/02/19 21:15:58 by jde-clee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,8 @@ void	ft_stackadd_front(t_stack **stack, t_stack *new);
 void	ft_stackadd_back(t_stack **stack, t_stack *new);
 int		ft_stacksize(t_stack *stack);
 
-int		*arg_checker(char **argv, t_stack *a);
-t_stack    *parser(int *numbers, t_stack *a);
+t_stack	*arg_parser(char **argv);
+char	**arg_cleaner(char **argv);
+t_stack	*parser(int *numbers, t_stack *a);
 
 #endif
