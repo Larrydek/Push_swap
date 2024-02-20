@@ -6,7 +6,7 @@
 /*   By: jde-clee <jde-clee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 19:22:48 by jde-clee          #+#    #+#             */
-/*   Updated: 2024/02/19 21:30:33 by jde-clee         ###   ########.fr       */
+/*   Updated: 2024/02/20 21:59:14 by jde-clee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ t_stack	*ft_stacklast(t_stack *stack)
 
 void	ft_stackadd_back(t_stack **stack, t_stack *new)
 {
+	ft_printf("FUNCION STACKADD BACK\n");
 	if (*stack)
 		ft_stacklast(*stack)->next = new;
 	else

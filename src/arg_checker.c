@@ -12,26 +12,29 @@
 
 #include "../inc/push_swap.h"
 
-t_stack *arg_parser(char **argv)
+t_stack **arg_parser(char **argv)
 {
-	t_stack *stack_a;
 	t_stack *new;
+    t_stack **stack_a;
 	char	**char_nums;
+    int     len_char_nums;
 	int		i;
 
     char_nums = arg_cleaner(argv);
+    len_char_nums = ft_strstrlen(char_nums);
 	i = 0;
-	stack_a = NULL;
 
+    stack_a = malloc(len_char_nums * sizeof(t_stack *));
     while (char_nums[i])
     {
         ft_printf("CHAR_NUMS: %s\n", char_nums[i]);
         if ((ft_atol(char_nums[i]) < INT_MIN) || (ft_atol(char_nums[i]) > INT_MAX))
             return (free(char_nums), NULL);
-		
         new = ft_stacknew(ft_atoi(char_nums[i]));
+        if (new)
+		    ft_stackadd_back(stack_a, new);
+		ft_printf("HASTA ACA LLEGASTE PERRO\n");
 		ft_printf("Nodo NEW: %i\n", new->content);
-		ft_stackadd_back(stack_a, new);
 		free(new);
         i++;
     }

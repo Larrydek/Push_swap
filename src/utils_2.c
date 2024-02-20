@@ -1,44 +1,45 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   utils_2.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jde-clee <jde-clee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/23 20:54:53 by jde-clee          #+#    #+#             */
-/*   Updated: 2024/02/20 21:47:58 by jde-clee         ###   ########.fr       */
+/*   Created: 2024/02/20 20:26:48 by jde-clee          #+#    #+#             */
+/*   Updated: 2024/02/20 21:30:05 by jde-clee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 
-int main(int argc, char **argv)
+int	ft_strstrlen(char **argv)
 {
-	char **char_nums;
-	t_stack **stack_a;
-	t_stack *nodo;
+	int i;
+
+	i = 0;
+	while (argv[i] != 0)
+		i++;
+	return (i);
+}
+
+/* t_stack	**crear_stack(char **char_num)
+{
+	t_stack **stack;
+	t_stack *node;
+	int len_stack;
 	int i;
 	
-	if (argc < 2)
-		return (0);
-		
+	len_stack = ft_strstrlen(char_num);
+	stack = malloc(len_stack * sizeof(t_stack *));
+	node = NULL;
 	i = 0;
-	char_nums = arg_cleaner(argv);
-	stack_a = arg_parser(argv + 1);
-	nodo = stack_a[0];
-	while(nodo)
+	
+	while(i < len_stack)
 	{
-		ft_printf("STACK CONTENT: %i\n", nodo->content);
-		nodo = nodo->next;
+		node = ft_stacknew(char_num[i]);
+		if (node)
+			ft_stackadd_back(stack, node);
+		i++;
 	}
-	if (!stack_a)
-		return (ft_printf("Error\n"));
-		
-	i = 0;
-	ft_printf("Procesando...\n");
-	//free(numbers);
-	//sort(&a, &b);
-	//free(a);
-	//free(b);
-	return (0);
-}
+	return (stack);
+} */

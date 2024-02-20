@@ -6,7 +6,7 @@
 /*   By: jde-clee <jde-clee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 21:19:20 by jde-clee          #+#    #+#             */
-/*   Updated: 2024/02/19 21:15:58 by jde-clee         ###   ########.fr       */
+/*   Updated: 2024/02/20 21:47:17 by jde-clee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@ typedef struct s_stack
 {
 	int content;
 	int index;
-	int height;
 	struct s_stack *next;
 } t_stack;
 
@@ -39,8 +38,9 @@ t_stack	*ft_stacklast(t_stack *stack);
 void	ft_stackadd_front(t_stack **stack, t_stack *new);
 void	ft_stackadd_back(t_stack **stack, t_stack *new);
 int		ft_stacksize(t_stack *stack);
+int		ft_strstrlen(char **argv);
 
-t_stack	*arg_parser(char **argv);
+t_stack **arg_parser(char **argv);
 char	**arg_cleaner(char **argv);
 t_stack	*parser(int *numbers, t_stack *a);
 
