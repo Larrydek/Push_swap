@@ -6,7 +6,7 @@
 /*   By: jde-clee <jde-clee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 19:22:48 by jde-clee          #+#    #+#             */
-/*   Updated: 2024/02/20 21:59:14 by jde-clee         ###   ########.fr       */
+/*   Updated: 2024/07/06 20:57:00 by jde-clee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,24 +26,31 @@ t_stack	*ft_stacknew(int content)
 
 t_stack	*ft_stacklast(t_stack *stack)
 {
-	t_stack	*tmp;
+	t_stack *tmp;
 
+	tmp = stack;
 	if (!stack)
 		return (NULL);
-	tmp = stack;
-	while (tmp->next)
+	printf("tmp memory direc: %p\n", (void *)tmp);
+	while (tmp && tmp->next != NULL)
+	{
 		tmp = tmp->next;
-	ft_printf("AHORA SI!!!\n");
+		printf("tmp direc: %p\n", (void *)tmp);
+	}
 	return (tmp);
 }
 
 void	ft_stackadd_back(t_stack **stack, t_stack *new)
 {
-	ft_printf("FUNCION STACKADD BACK\n");
-	if (*stack)
-		ft_stacklast(*stack)->next = new;
-	else
-		*stack = new;
+	t_stack *tmp;
+	if (new)
+	{
+		tmp = ft_stacklast(*stack);
+		if (!tmp)
+			*stack = new;
+		else
+			tmp->next = new;
+	}
 }
 
 void	ft_stackadd_front(t_stack **stack, t_stack *new)

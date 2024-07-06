@@ -24,6 +24,7 @@ t_stack **arg_parser(char **argv)
     len_char_nums = ft_strstrlen(char_nums);
 	i = 0;
 
+    printf("LEN_CHAR_NUMS: %i\n", len_char_nums);
     stack_a = malloc(len_char_nums * sizeof(t_stack *));
     while (char_nums[i])
     {
@@ -33,8 +34,8 @@ t_stack **arg_parser(char **argv)
         new = ft_stacknew(ft_atoi(char_nums[i]));
         if (new)
 		    ft_stackadd_back(stack_a, new);
-		ft_printf("HASTA ACA LLEGASTE PERRO\n");
-		ft_printf("Nodo NEW: %i\n", new->content);
+		ft_printf("Nodo NEW agregado: %i\n", new->content);
+        printf("Stack_a->content = %i\n", (*stack_a)->content);
 		free(new);
         i++;
     }

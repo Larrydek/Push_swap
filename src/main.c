@@ -6,7 +6,7 @@
 /*   By: jde-clee <jde-clee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 20:54:53 by jde-clee          #+#    #+#             */
-/*   Updated: 2024/06/12 03:13:00 by jde-clee         ###   ########.fr       */
+/*   Updated: 2024/07/06 18:54:52 by jde-clee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,10 @@ int main(int argc, char **argv)
 	
 	stack_a = arg_parser(&argv[i]);
 	nodo = *stack_a;
-	while(nodo)
+	
+	print_stack(nodo);
+	ft_printf("NODO->CONTENT: %i\n", nodo->content);
+	while(nodo != NULL)
 	{
 		ft_printf("STACK CONTENT: %i\n", nodo->content);
 		nodo = nodo->next;

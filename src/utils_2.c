@@ -6,7 +6,7 @@
 /*   By: jde-clee <jde-clee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 20:26:48 by jde-clee          #+#    #+#             */
-/*   Updated: 2024/02/20 21:30:05 by jde-clee         ###   ########.fr       */
+/*   Updated: 2024/07/06 20:05:40 by jde-clee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,3 +43,15 @@ int	ft_strstrlen(char **argv)
 	}
 	return (stack);
 } */
+
+void	print_stack(t_stack *stack)
+{
+	t_stack *tmp;
+
+	tmp = stack;
+	while (tmp)
+	{
+		printf("tmp->content: %i\n", tmp->content);
+		tmp = tmp->next;
+	}
+}
