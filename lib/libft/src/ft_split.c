@@ -6,7 +6,7 @@
 /*   By: jde-clee <jde-clee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 01:36:36 by jde-clee          #+#    #+#             */
-/*   Updated: 2024/01/27 21:52:28 by jde-clee         ###   ########.fr       */
+/*   Updated: 2024/07/08 23:14:46 by jde-clee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ static size_t	ft_n_chars(char const *s, char c, size_t i)
 	return (size);
 }
 
-char	**ft_split(char const *s, char c)
+char	**ft_split(char *s, char c)
 {
 	size_t	i;
 	size_t	j;

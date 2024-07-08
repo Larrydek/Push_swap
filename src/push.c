@@ -12,11 +12,11 @@
 
 #include "../inc/push_swap.h"
 
-/* void	*ft_push(t_stack *a, t_stack *b)
+/* void	*ft_push(t_list *a, t_list *b)
 {
-	if (ft_stacksize(a) > 0)
+	if (ft_lstsize(a) > 0)
 	{
-		ft_stackadd_front(b, a);
+		ft_lstadd_front(b, a);
 		ft_delone(a);
 	}
 } */

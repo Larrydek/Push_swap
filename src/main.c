@@ -6,7 +6,7 @@
 /*   By: jde-clee <jde-clee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 20:54:53 by jde-clee          #+#    #+#             */
-/*   Updated: 2024/07/06 18:54:52 by jde-clee         ###   ########.fr       */
+/*   Updated: 2024/07/08 21:03:24 by jde-clee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,25 +14,23 @@
 
 int main(int argc, char **argv)
 {
-	t_stack **stack_a;
-	t_stack *nodo;
-	int i = 1;
+	t_list *stack_a;
+	char	**char_nums;
+    int     len_char_nums;
 
 	if (argc < 2)
 		return (0);
+
+	stack_a = NULL;	
+    char_nums = arg_cleaner(argv);
+    len_char_nums = ft_strstrlen(char_nums);
+
+    printf("Len CHAR_NUMS: %i\n", len_char_nums);
+	stack_a = arg_parser(char_nums, &stack_a);
 	
-	stack_a = arg_parser(&argv[i]);
-	nodo = *stack_a;
 	
-	print_stack(nodo);
-	ft_printf("NODO->CONTENT: %i\n", nodo->content);
-	while(nodo != NULL)
-	{
-		ft_printf("STACK CONTENT: %i\n", nodo->content);
-		nodo = nodo->next;
-		if (nodo->next == NULL)
-			break;
-	}
+	printf("-- HASTA ACÁ EL MAIN--\n");
+	print_list(&stack_a);
 	if (!stack_a)
 		return (ft_printf("Error\n"));
 		

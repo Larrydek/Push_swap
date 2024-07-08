@@ -12,11 +12,11 @@
 
 #include "../inc/push_swap.h"
 
-/* t_stack	*ft_swap(t_stack *a)
+/* t_list	*ft_swap(t_list *a)
 {
 	int aux;
 
-	if (ft_stacksize(a) < 2 || !a)
+	if (ft_lstsize(a) < 2 || !a)
 		return (NULL);
 	aux = a->content;
 	a->content = a->next->content;
