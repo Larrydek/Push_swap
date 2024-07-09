@@ -28,11 +28,11 @@ t_list *arg_parser(char **char_nums, t_list **stack_a)
         num = malloc(sizeof(int) * 1);
         *num = ft_atoi(char_nums[i]);
         new = ft_lstnew(num);
+        printf("ACA NO\n");
         if (new)
 		    ft_lstadd_back(stack_a, new);
         i++;
     }
-    free(char_nums);
     return (*stack_a);
 }
 
@@ -52,6 +52,5 @@ char **arg_cleaner(char **argv)
         i++;
     }
     char_nums = ft_split(aux, ' ');
-    free(aux);
 	return (char_nums);
 }

@@ -12,7 +12,8 @@
 
 #include "../inc/push_swap.h"
 
-/* t_list	*ft_swap(t_list *a)
+/*
+t_list	*ft_swap(t_list *a)
 {
 	int aux;
 

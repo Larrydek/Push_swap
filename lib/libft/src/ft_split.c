@@ -6,7 +6,7 @@
 /*   By: jde-clee <jde-clee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 01:36:36 by jde-clee          #+#    #+#             */
-/*   Updated: 2024/07/08 23:14:46 by jde-clee         ###   ########.fr       */
+/*   Updated: 2024/07/09 21:35:54 by jde-clee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,14 +17,7 @@ CUENTA LA CANTIDAD DE BYTES A ALMACENAR EN LA DIMENSION DE MÁS AFUERA
 -LA CANTIDAD DE STRINGS SEPARADAS, BÁSICAMENTE-
 */
 
-static void	ft_free(char **str, size_t j)
-{
-	while (j-- > 0)
-		free(str[j]);
-	free(str);
-}
-
-static size_t	ft_n_strings(char const *s, char c)
+size_t	ft_n_strings(char *s, char c)
 {
 	size_t	i;
 	size_t	n_strings;
@@ -45,7 +38,7 @@ static size_t	ft_n_strings(char const *s, char c)
 	return (n_strings);
 }
 
-static size_t	ft_n_chars(char const *s, char c, size_t i)
+size_t	ft_n_chars(char *s, char c, size_t i)
 {
 	size_t	size;
 
@@ -79,24 +72,6 @@ char	**ft_split(char *s, char c)
 			return (ft_free(final_s, j), NULL);
 		i = i + ft_n_chars(s, c, i);
 	}
+	free(s);
 	return (final_s[j] = 0, final_s);
 }
-/*
-int main ()
-{
-	char *s = "VENI VENI CANTA CONMIGO";
-	char **final_s;
-	char c = 'N';
-
-	size_t i;
-	i = 0;
-	
-	final_s = ft_split(s , c);
-	while(i <= ft_n_strings(s, c))
-	{
-		printf("%s\n" , final_s[i]);
-		i++;
-	}
-	return 0;
-}
-*/

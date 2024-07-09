@@ -12,7 +12,7 @@
 
 #include "../inc/push_swap.h"
 
-/* void	*ft_rotate(t_list *a)
+/*void	*ft_rotate(t_list *a)
 {
 	t_list *aux;
 
@@ -33,4 +33,4 @@ void	*ft_reverse_rotate(t_list *a)
 	ft_lstdelone(a);
 	ft_lstadd_back(a, aux);
 }
- */
+*/
