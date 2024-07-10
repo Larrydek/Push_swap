@@ -6,7 +6,7 @@
 /*   By: jde-clee <jde-clee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 21:19:20 by jde-clee          #+#    #+#             */
-/*   Updated: 2024/07/09 22:45:14 by jde-clee         ###   ########.fr       */
+/*   Updated: 2024/07/10 23:38:00 by jde-clee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@
 # include "../lib/printf/inc/ft_printf.h"
 
 //t_list	*ft_swap(t_list *a);
-//void	*ft_push(t_list *a,t_list *b);
 //void	*ft_rotate(t_list *a);
 //void	*ft_reverse_rotate(t_list *a);
 
@@ -32,6 +31,7 @@ t_list *arg_parser(char **char_nums, t_list **stack_a);
 char	**arg_cleaner(char **argv);
 t_list	*parser(int *numbers, t_list *a);
 void	print_list(t_list **stack);
+void	ft_swap(t_list *a);
 
 void	ft_push(t_list *a, t_list *b);
 

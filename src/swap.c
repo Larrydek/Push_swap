@@ -12,16 +12,16 @@
 
 #include "../inc/push_swap.h"
 
-/*
-t_list	*ft_swap(t_list *a)
+void	ft_swap(t_list *a)
 {
-	int aux;
+	int *num;
 
-	if (ft_lstsize(a) < 2 || !a)
-		return (NULL);
-	aux = a->content;
-	a->content = a->next->content;
-	a = a->next;
-	a->content = aux;
-	return (a);
-} */
+	num = malloc(sizeof(int));
+	*num = *((int *)(ft_lstlast(a)->content));
+	if (ft_lstsize(a) > 1)
+	{
+		ft_lstadd_back(&a, ft_lstnew(num));
+		ft_lstdelone(ft_lstlast(a)->next, free);
+		ft_lstadd_back(&a, ft_lstnew(tmp));
+	}
+}

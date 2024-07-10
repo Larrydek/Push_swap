@@ -6,7 +6,7 @@
 /*   By: jde-clee <jde-clee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 20:54:53 by jde-clee          #+#    #+#             */
-/*   Updated: 2024/07/09 23:31:25 by jde-clee         ###   ########.fr       */
+/*   Updated: 2024/07/10 23:40:23 by jde-clee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,15 +42,26 @@ int main(int argc, char **argv)
 	print_list(&stack_a);
 	if (!stack_a)
 		return (ft_printf("Error\n"));
-		
-	// i = 0;
-	ft_printf("Procesando...\n");
-	ft_lstnew(stack_b);
 
-	
-	ft_push(stack_a, stack_b);
+	ft_printf("Procesando...\n");
+
+	int *a;
+	int *b;
+	a = malloc(sizeof(int));
+	b = malloc(sizeof(int));
+	*a = 20;
+	*b = 42;
+
+	// stack_b = malloc(sizeof(t_list));
+	ft_lstadd_back(&stack_b, ft_lstnew(a));
+	ft_lstadd_back(&stack_b, ft_lstnew(b));
+
+	printf("VAMO ARGENTINA\n");
+	ft_swap(stack_b);
+	printf("STACK A:\n");
 	print_list(&stack_a);
+	printf("STACK B:\n");
 	print_list(&stack_b);
-	ft_lstclear(&stack_a, free);
+	//ft_lstclear(&stack_a, free);
 	return (0);
 }

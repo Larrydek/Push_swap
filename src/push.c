@@ -14,9 +14,13 @@
 
 void	ft_push(t_list *a, t_list *b)
 {
+	int *num;
+
+	num = malloc(sizeof(int));
+	*num = *((int *)(ft_lstlast(b)->content));
 	if ((ft_lstsize(b)) > 0)
 	{
-		ft_lstadd_back(&a, b);
+		ft_lstadd_back(&a, ft_lstnew(num));
 		ft_lstdelone(b, free);
 	}
 }
