@@ -12,25 +12,37 @@
 
 #include "../inc/push_swap.h"
 
-/*void	*ft_rotate(t_list *a)
+void	ft_rotate(t_list **a)
 {
-	t_list *aux;
+	t_list *last;
 
-	if (ft_lstsize(a) < 2 || !a)
+	last = *a;
+	if (!last || !last->next)
 		return ;
-	aux = ft_lstlast(a);
-	ft_lstdelone(a);
-	ft_lstadd_back(a, aux);
+
+	while (last->next)
+		last = last->next;
+	last->next = *a;
+	//printf("Memory first->next: %p\n", first->next);
+	*a = (*a)->next;
+	last->next->next = NULL;
 }
 
-void	*ft_reverse_rotate(t_list *a)
+void	ft_reverse_rotate(t_list **a)
 {
-	t_list *aux;
+	t_list *last;
+	t_list *second_last;
 
-	aux = a;
-	if (ft_lstsize(a) < 2 || !a)
+	if (!a || !*a || !(*a)->next)
 		return ;
-	ft_lstdelone(a);
-	ft_lstadd_back(a, aux);
+
+	second_last = *a;
+	while (second_last->next->next)
+		second_last = second_last->next;
+	
+	last = second_last->next;
+	second_last->next = NULL;
+	last->next = *a;
+	*a = last;
+	//printf("Memory first->next: %p\n", first->next);
 }
-*/

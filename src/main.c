@@ -6,7 +6,7 @@
 /*   By: jde-clee <jde-clee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 20:54:53 by jde-clee          #+#    #+#             */
-/*   Updated: 2024/07/11 02:34:21 by jde-clee         ###   ########.fr       */
+/*   Updated: 2024/07/11 16:37:01 by jde-clee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,6 @@ int main(int argc, char **argv)
 	stack_a = arg_parser(char_nums, &stack_a);
 	ft_free(char_nums, len_char_nums);
 
-	printf("-- HASTA ACÁ EL MAIN--\n");
 	print_list(&stack_a);
 	if (!stack_a)
 		return (ft_printf("Error\n"));
@@ -56,12 +55,20 @@ int main(int argc, char **argv)
 	ft_lstadd_back(&stack_b, ft_lstnew(a));
 	ft_lstadd_back(&stack_b, ft_lstnew(b));
 
-	printf("VAMO ARGENTINA\n");
-	ft_swap(stack_a);
 	printf("STACK A:\n");
+	//ft_swap(stack_a);
+	//printf("STACK A (after swap):\n");
 	print_list(&stack_a);
-	printf("STACK B:\n");
-	print_list(&stack_b);
+	//printf("STACK B:\n");
+	//print_list(&stack_b);
+
+	//ft_rotate(&stack_a);
+	//printf("Stack A (after rotate): \n");
+
+	printf("Stack A (after reverse rotate): \n");
+	ft_reverse_rotate(&stack_a);
+	print_list(&stack_a);
+
 
 	ft_lstclear(&stack_a, free);
 	return (0);
