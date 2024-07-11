@@ -6,13 +6,13 @@
 /*   By: jde-clee <jde-clee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/09 19:51:24 by jde-clee          #+#    #+#             */
-/*   Updated: 2024/07/09 19:52:22 by jde-clee         ###   ########.fr       */
+/*   Updated: 2024/07/11 17:08:11 by jde-clee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/libft.h"
 
-void	ft_free(char **str, size_t j)
+void	ft_free_matrix(char **str, size_t j)
 {
 	while (j-- > 0)
 		free(str[j]);

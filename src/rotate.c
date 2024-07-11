@@ -12,21 +12,33 @@
 
 #include "../inc/push_swap.h"
 
+/*
+	ra rotate a:
+	Desplaza hacia arriba todos los elementos del stack a una posición,
+	de forma que el primer elemento se convierte en el último.
+*/
+
 void	ft_rotate(t_list **a)
 {
 	t_list *last;
 
-	last = *a;
-	if (!last || !last->next)
+	if (!a || !*a || !(*a)->next)
 		return ;
 
+	last = *a;
 	while (last->next)
 		last = last->next;
 	last->next = *a;
-	//printf("Memory first->next: %p\n", first->next);
 	*a = (*a)->next;
 	last->next->next = NULL;
+	//printf("Memory first->next: %p\n", first->next);
 }
+
+/*
+	rra reverse rotate a:
+	Desplaza hacia abajo todos los elementos del stack a una
+	posición, de forma que el último elemento se convierte en el primero.
+*/
 
 void	ft_reverse_rotate(t_list **a)
 {
@@ -39,7 +51,6 @@ void	ft_reverse_rotate(t_list **a)
 	second_last = *a;
 	while (second_last->next->next)
 		second_last = second_last->next;
-	
 	last = second_last->next;
 	second_last->next = NULL;
 	last->next = *a;

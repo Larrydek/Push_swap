@@ -20,9 +20,10 @@ t_list *arg_parser(char **char_nums, t_list **stack_a)
 
 	i = 0;
 
+    ft_printf("CHAR_NUMS: \n");
     while (char_nums[i])
     {
-        ft_printf("CHAR_NUMS: ['%s']\n", char_nums[i]);
+        ft_printf("['%s']", char_nums[i]);
         if ((ft_atol(char_nums[i]) < INT_MIN) || (ft_atol(char_nums[i]) > INT_MAX))
             return (free(char_nums), NULL);
         num = malloc(sizeof(int) * 1);
@@ -32,6 +33,7 @@ t_list *arg_parser(char **char_nums, t_list **stack_a)
 		    ft_lstadd_back(stack_a, new);
         i++;
     }
+    ft_printf("\n");
     return (*stack_a);
 }
 

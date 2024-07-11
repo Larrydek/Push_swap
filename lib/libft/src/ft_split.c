@@ -6,7 +6,7 @@
 /*   By: jde-clee <jde-clee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 01:36:36 by jde-clee          #+#    #+#             */
-/*   Updated: 2024/07/09 21:35:54 by jde-clee         ###   ########.fr       */
+/*   Updated: 2024/07/11 17:09:43 by jde-clee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ char	**ft_split(char *s, char c)
 		ft_n_chars(s, c, i);
 		final_s[j] = ft_substr(s, i, ft_n_chars(s, c, i));
 		if (!(final_s[j]))
-			return (ft_free(final_s, j), NULL);
+			return (ft_free_matrix(final_s, j), NULL);
 		i = i + ft_n_chars(s, c, i);
 	}
 	free(s);

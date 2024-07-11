@@ -12,19 +12,23 @@
 
 #include "../inc/push_swap.h"
 
-void	ft_swap(t_list *a)
+/* 
+	sa swap a:
+	Intercambia los dos primeros elementos del stack a.
+	No hace nada si hay uno o menos elementos
+*/
+
+void	ft_swap(t_list **a)
 {
 	t_list *first;
 	t_list *second;
-	void	*tmp_content;
 
-	if (a && a->next)
+	if (*a && (*a)->next)
 	{
-		first = a;
-		second = a->next;
-
-		tmp_content = first->content;
-		first->content = second->content;
-		second->content = tmp_content;
+		first = *a;
+		second = (*a)->next;
+		first->next = second->next;
+		second->next = first;
+		*a = second;
 	}
 }

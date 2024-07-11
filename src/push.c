@@ -12,7 +12,25 @@
 
 #include "../inc/push_swap.h"
 
-void	ft_push(t_list *a, t_list *b)
+/* 
+	pa push a:
+	Toma el primer elemento del stack b y lo pone el primero en el stack a.
+	No hace nada si b está vacío.
+*/
+
+void	ft_push(t_list **a, t_list **b)
+{
+	t_list *tmp;
+
+	if (!a || !*a)
+		return;
+	tmp = (*a)->next;
+	(*a)->next = *b;
+	*b = *a;
+	*a = tmp;
+}
+
+/* void	ft_push(t_list *a, t_list *b)
 {
 	int *num;
 
@@ -23,4 +41,4 @@ void	ft_push(t_list *a, t_list *b)
 		ft_lstadd_back(&a, ft_lstnew(num));
 		ft_lstdelone(b, free);
 	}
-}
+} */

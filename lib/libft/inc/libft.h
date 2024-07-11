@@ -6,7 +6,7 @@
 /*   By: jde-clee <jde-clee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 20:36:19 by jde-clee          #+#    #+#             */
-/*   Updated: 2024/07/09 20:07:01 by jde-clee         ###   ########.fr       */
+/*   Updated: 2024/07/11 17:08:18 by jde-clee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ void	ft_putchar_fd(char c, int fd);
 void	ft_putstr_fd(char *s, int fd);
 void	ft_putendl_fd(char *s, int fd);
 void	ft_putnbr_fd(int n, int fd);
-void	ft_free(char **str, size_t j);
+void	ft_free_matrix(char **str, size_t j);
 size_t	ft_n_strings(char *s, char c);
 size_t	ft_n_chars(char *s, char c, size_t i);
 
