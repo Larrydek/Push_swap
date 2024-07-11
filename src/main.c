@@ -6,7 +6,7 @@
 /*   By: jde-clee <jde-clee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 20:54:53 by jde-clee          #+#    #+#             */
-/*   Updated: 2024/07/10 23:40:23 by jde-clee         ###   ########.fr       */
+/*   Updated: 2024/07/11 02:34:21 by jde-clee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,11 +57,12 @@ int main(int argc, char **argv)
 	ft_lstadd_back(&stack_b, ft_lstnew(b));
 
 	printf("VAMO ARGENTINA\n");
-	ft_swap(stack_b);
+	ft_swap(stack_a);
 	printf("STACK A:\n");
 	print_list(&stack_a);
 	printf("STACK B:\n");
 	print_list(&stack_b);
-	//ft_lstclear(&stack_a, free);
+
+	ft_lstclear(&stack_a, free);
 	return (0);
 }

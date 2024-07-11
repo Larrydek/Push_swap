@@ -14,14 +14,17 @@
 
 void	ft_swap(t_list *a)
 {
-	int *num;
+	t_list *first;
+	t_list *second;
+	void	*tmp_content;
 
-	num = malloc(sizeof(int));
-	*num = *((int *)(ft_lstlast(a)->content));
-	if (ft_lstsize(a) > 1)
+	if (a && a->next)
 	{
-		ft_lstadd_back(&a, ft_lstnew(num));
-		ft_lstdelone(ft_lstlast(a)->next, free);
-		ft_lstadd_back(&a, ft_lstnew(tmp));
+		first = a;
+		second = a->next;
+
+		tmp_content = first->content;
+		first->content = second->content;
+		second->content = tmp_content;
 	}
 }
