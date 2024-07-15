@@ -31,4 +31,5 @@ void	ft_swap(t_list **a)
 		second->next = first;
 		*a = second;
 	}
+	ft_printf("sa\n");
 }
