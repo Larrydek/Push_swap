@@ -31,8 +31,8 @@ void	ra(t_list **a)
 	last->next = *a;
 	*a = (*a)->next;
 	last->next->next = NULL;
-	printf("ra\n");
-	//printf("Memory first->next: %p\n", first->next);
+	ft_printf("ra\n");
+	//ft_printf("Memory first->next: %p\n", first->next);
 }
 
 /*
@@ -56,6 +56,6 @@ void	rra(t_list **a)
 	second_last->next = NULL;
 	last->next = *a;
 	*a = last;
-	printf("rra\n");
-	//printf("Memory first->next: %p\n", first->next);
+	ft_printf("rra\n");
+	//ft_printf("Memory first->next: %p\n", first->next);
 }

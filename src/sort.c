@@ -53,7 +53,7 @@ void	sort_case_3(t_list **stack_a)
 	{
 		rra(stack_a);
 	}
-	printf("SORT_CASE_3: \n");
+	ft_printf("SORT_CASE_3: \n");
 	print_list(stack_a);
 }
 
@@ -63,9 +63,9 @@ void	sort_case_5(t_list **stack_a, t_list **stack_b)
 	int		index;
 
 	min = get_min(stack_a);
-	printf("min: %i\n", min);
+	ft_printf("min: %i\n", min);
 	index = get_index(stack_a, min);
-	printf("index min: %i\n", index);
+	ft_printf("index min: %i\n", index);
 
 	while (*(int *)(*stack_a)->content != min)
 	{
@@ -75,12 +75,12 @@ void	sort_case_5(t_list **stack_a, t_list **stack_b)
 			ra(stack_a);
 	}
 	pa(stack_a, stack_b);
-	printf("sorting 1.....\n");
+	ft_printf("sorting 1.....\n");
 	print_list(stack_a);
 	min = get_min(stack_a);
-	printf("min: %i\n", min);
+	ft_printf("min: %i\n", min);
 	index = get_index(stack_a, min);
-	printf("index min: %i\n", index);
+	ft_printf("index min: %i\n", index);
 	while(*(int *)(*stack_a)->content != min)
 	{
 		if (index >= 2)
@@ -89,10 +89,10 @@ void	sort_case_5(t_list **stack_a, t_list **stack_b)
 			ra(stack_a);
 	}
 	pa(stack_a, stack_b);
-	printf("sorting 2.....\n");
+	ft_printf("sorting 2.....\n");
 	print_list(stack_a);
 	sort_case_3(stack_a);
-	printf("STACK_B: \n");
+	ft_printf("STACK_B: \n");
 	print_list(stack_b);
 	pb(stack_b, stack_a);
 	pb(stack_b, stack_a);
@@ -114,7 +114,7 @@ void	sort_to_10(t_list **stack_a, t_list **stack_b)
 		return ;
 	if (check_order(stack_a) == 1 && ft_lstsize(*stack_b) == 0)
 	{
-		printf("----> ORDENADA\n");
+		ft_printf("----> ORDENADA\n");
 		return ;
 	}
 
@@ -126,19 +126,19 @@ void	sort_to_10(t_list **stack_a, t_list **stack_b)
 			ra(stack_a);
 	}
 	pb(stack_a, stack_b);
-	//printf("min: %i\n", min);
-	//printf("index min: %i\n", index);
+	//ft_printf("min: %i\n", min);
+	//ft_printf("index min: %i\n", index);
 	//print_list(stack_a);
-	//printf("[Stack_a] --> size: %i\n", size_a);
+	//ft_printf("[Stack_a] --> size: %i\n", size_a);
 	//print_list(stack_b);
-	//printf("[Stack_b] --> size: %i\n", size_b);
+	//ft_printf("[Stack_b] --> size: %i\n", size_b);
 	
 	//size_a = ft_lstsize(*stack_a);
 	//size_b = ft_lstsize(*stack_b);
 	size_a--;
 	size_b++;
-	//printf("SIZE_A: %i\n", size_a);
-	//printf("SIZE_B: %i\n", size_b);
+	//ft_printf("SIZE_A: %i\n", size_a);
+	//ft_printf("SIZE_B: %i\n", size_b);
 	if (size_a == 0)
 	{
 		while (size_b-- > 0)

@@ -6,7 +6,7 @@
 /*   By: jde-clee <jde-clee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 20:54:53 by jde-clee          #+#    #+#             */
-/*   Updated: 2024/07/18 06:21:54 by jde-clee         ###   ########.fr       */
+/*   Updated: 2024/07/18 07:52:31 by jde-clee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,12 +28,12 @@ int main(int argc, char **argv)
     char_nums = arg_cleaner(argv);
     len_char_nums = ft_strstrlen(char_nums);
 
-    printf("Len CHAR_NUMS: %i\n", len_char_nums);
+    //ft_printf("Len CHAR_NUMS: %i\n", len_char_nums);
 	stack_a = arg_parser(char_nums, &stack_a);
 	ft_free_matrix(char_nums, len_char_nums);
 
-	printf(" ---- Original Stack_A -----\n");
-	print_list(&stack_a);
+/* 	ft_printf(" ---- Original Stack_A -----\n");
+	print_list(&stack_a); */
 	if (!stack_a)
 		return (ft_printf("Error\n"));
 /* 
@@ -49,19 +49,18 @@ int main(int argc, char **argv)
 	ft_lstadd_back(&stack_b, ft_lstnew(b)); */
 
 	//ft_swap(&stack_a);
-	//printf("STACK A (after swap):\n");
+	//ft_printf("STACK A (after swap):\n");
 	//print_list(&stack_a);
-
-	sort_to_10(&stack_a, &stack_b);
+	sort_to_10(&stack_a, &stack_b);/* 
 	if (check_order(&stack_a) == 1)
-		printf("----> ORDENADA\n");
+		ft_printf("----> ORDENADA\n");
 	else
-		printf("----> DESORDENADA\n");
+		ft_printf("----> DESORDENADA\n");
 
-	printf("---- ORDERED STACK ----\n");
+	ft_printf("---- ORDERED STACK ----\n");
 	print_list(&stack_a);
 	print_list(&stack_b);
-	printf("---- ORDERED STACK ----\n");
+	ft_printf("---- ORDERED STACK ----\n"); */
 
 	ft_lstclear(&stack_a, free);
 	return (0);
