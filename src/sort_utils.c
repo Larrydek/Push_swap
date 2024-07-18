@@ -26,8 +26,9 @@ int		check_order(t_list **stack_a)
 	t_list	*copy_stack;
 
 	copy_stack = *stack_a;
-
-	while(copy_stack->next)
+	if (!copy_stack)
+		return (-1);
+	while(copy_stack && copy_stack->next)
 	{
 		if (*(int *)(copy_stack)->content > *(int *)(copy_stack)->next->content)
 			return (0);
@@ -47,7 +48,6 @@ int		get_index(t_list **stack_a, int num)
 		return (-1);
 	while ((copy_stack != NULL))
 	{
-		printf("index: %i\n", index);
 		if (*(int *)(copy_stack)->content == num)
 			break;
 		index++;
@@ -65,11 +65,23 @@ int		get_min(t_list **stack_a)
 	if (!copy_stack)
 		return (-1);
 	num = *(int *)(copy_stack)->content;
-	while ((copy_stack))
+	while ((copy_stack != NULL))
 	{
 		if (num > *(int *)(copy_stack)->content)
 			num = *(int *)(copy_stack)->content;
 		(copy_stack) = (copy_stack)->next;
 	}
 	return (num);
+}
+
+void	sort_case_2(t_list **stack_a)
+{
+	int		first;
+	int		second;
+
+	first = *(int *)(*stack_a)->content;
+	second = *(int *)(*stack_a)->next->content;
+
+	if (first > second)
+		sa(stack_a);
 }

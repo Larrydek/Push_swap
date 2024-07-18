@@ -25,18 +25,6 @@ case5 : [2,3,1]->rra->[1,2,3].
 
  */
 
-void	sort_case_2(t_list **stack_a)
-{
-	int		first;
-	int		second;
-
-	first = *(int *)(*stack_a)->content;
-	second = *(int *)(*stack_a)->next->content;
-
-	if (first > second)
-		sa(stack_a);
-}
-
 void	sort_case_3(t_list **stack_a)
 {
 	int		first;
@@ -108,4 +96,55 @@ void	sort_case_5(t_list **stack_a, t_list **stack_b)
 	print_list(stack_b);
 	pb(stack_b, stack_a);
 	pb(stack_b, stack_a);
+}
+
+void	sort_to_10(t_list **stack_a, t_list **stack_b)
+{
+	int		min;
+	int		index;
+	int		size_a;
+	int		size_b;
+
+	min = get_min(stack_a);
+	index = get_index(stack_a, min);
+	size_a = ft_lstsize(*stack_a);
+	size_b = ft_lstsize(*stack_b);
+
+	if (!(*stack_a) && check_order(stack_a) == -1)
+		return ;
+	if (check_order(stack_a) == 1 && ft_lstsize(*stack_b) == 0)
+	{
+		printf("----> ORDENADA\n");
+		return ;
+	}
+
+	while (*(int *)(*stack_a)->content != min)
+	{
+		if (index >= size_a / 2)
+			rra(stack_a);
+		else
+			ra(stack_a);
+	}
+	pb(stack_a, stack_b);
+	//printf("min: %i\n", min);
+	//printf("index min: %i\n", index);
+	//print_list(stack_a);
+	//printf("[Stack_a] --> size: %i\n", size_a);
+	//print_list(stack_b);
+	//printf("[Stack_b] --> size: %i\n", size_b);
+	
+	//size_a = ft_lstsize(*stack_a);
+	//size_b = ft_lstsize(*stack_b);
+	size_a--;
+	size_b++;
+	//printf("SIZE_A: %i\n", size_a);
+	//printf("SIZE_B: %i\n", size_b);
+	if (size_a == 0)
+	{
+		while (size_b-- > 0)
+			pa(stack_b, stack_a);
+		return ;
+	}
+	else
+		sort_to_10(stack_a, stack_b);
 }

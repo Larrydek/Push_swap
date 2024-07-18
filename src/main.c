@@ -6,7 +6,7 @@
 /*   By: jde-clee <jde-clee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 20:54:53 by jde-clee          #+#    #+#             */
-/*   Updated: 2024/07/18 02:59:40 by jde-clee         ###   ########.fr       */
+/*   Updated: 2024/07/18 06:21:54 by jde-clee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,18 +52,16 @@ int main(int argc, char **argv)
 	//printf("STACK A (after swap):\n");
 	//print_list(&stack_a);
 
+	sort_to_10(&stack_a, &stack_b);
 	if (check_order(&stack_a) == 1)
-		printf("ORDENADA\n");
+		printf("----> ORDENADA\n");
 	else
-		printf("DESORDENADA\n");
-	sort_case_5(&stack_a, &stack_b);
-	if (check_order(&stack_a) == 1)
-		printf("ORDENADA\n");
-	else
-		printf("DESORDENADA\n");
+		printf("----> DESORDENADA\n");
 
 	printf("---- ORDERED STACK ----\n");
 	print_list(&stack_a);
+	print_list(&stack_b);
+	printf("---- ORDERED STACK ----\n");
 
 	ft_lstclear(&stack_a, free);
 	return (0);

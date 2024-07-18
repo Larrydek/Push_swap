@@ -6,7 +6,7 @@
 /*   By: jde-clee <jde-clee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 02:33:29 by jde-clee          #+#    #+#             */
-/*   Updated: 2024/07/08 20:38:32 by jde-clee         ###   ########.fr       */
+/*   Updated: 2024/07/18 06:03:26 by jde-clee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@ int	ft_lstsize(t_list *lst)
 	i = 0;
 	while (tmp)
 	{
-		tmp = tmp->next;
 		i++;
+		tmp = tmp->next;
 	}
 	return (i);
 }
