@@ -18,7 +18,7 @@
 	No hace nada si b está vacío.
 */
 
-void	ft_push(t_list **a, t_list **b)
+void	pa(t_list **a, t_list **b)
 {
 	t_list *tmp;
 
@@ -28,6 +28,20 @@ void	ft_push(t_list **a, t_list **b)
 	(*a)->next = *b;
 	*b = *a;
 	*a = tmp;
+	ft_printf("pa\n");
+}
+
+void	pb(t_list **b, t_list **a)
+{
+	t_list *tmp;
+
+	if (!b || !*b)
+		return;
+	tmp = (*b)->next;
+	(*b)->next = *a;
+	*a = *b;
+	*b = tmp;
+	ft_printf("pb\n");
 }
 
 /* void	ft_push(t_list *a, t_list *b)

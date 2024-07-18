@@ -12,27 +12,6 @@
 
 #include "../inc/push_swap.h"
 
-/* void	insertion_sort(t_list **stack_a, t_list **stack_b)
-{
-	while (*stack_a)
-	{
-		ft_push(stack_a, stack_b);
-		ft_printf("pb\n");
-
-		if (*stack_b && (*stack_b)->next && *(int *)((*stack_b)->content) < *(int *)(*stack_b)->next->content)
-		{
-			ft_swap(stack_b);
-			ft_printf("sa\n");
-		}
-
-		while(*stack_b)
-		{
-			ft_push(stack_a, stack_b);
-			ft_printf("pa\n");
-		}
-	}
-} */
-
 /* 
 case1 : [2,1,3]->sa->[1,2,3].
 
@@ -44,58 +23,89 @@ case4 : [1,3,2]->sa->[3,1,2]->ra->[1,2,3].
 
 case5 : [2,3,1]->rra->[1,2,3].
 
-Tengo que hacer sort 2 y sort 5 también.
  */
 
 void	sort_case_2(t_list **stack_a)
 {
-	t_list *copy_stack;
-	int		*first;
-	int		*second;
+	int		first;
+	int		second;
 
-	copy_stack = (*stack_a);
-	first = *(int *)copy_stack->content;
-	second = *(int *)copy_stack->next->content;
+	first = *(int *)(*stack_a)->content;
+	second = *(int *)(*stack_a)->next->content;
 
 	if (first > second)
-		ft_swap(copy_stack);
+		sa(stack_a);
 }
 
 void	sort_case_3(t_list **stack_a)
 {
-	t_list *copy_stack;
-	int		*first;
-	int		*second;
-	int		*third;
+	int		first;
+	int		second;
+	int		third;
 
-	copy_stack = (*stack_a);
-	first = *(int *)copy_stack->content;
-	second = *(int *)copy_stack->next->content;
-	third = *(int *)copy_stack->next->next->content;
+	first = *(int *)(*stack_a)->content;
+	second = *(int *)(*stack_a)->next->content;
+	third = *(int *)(*stack_a)->next->next->content;
 
 	if (first > second && second < third && first < third)
-		ft_swap(copy_stack);
+		sa(stack_a);
 	else if (first > second && second > third && first > third)
 	{
-		ft_swap(copy_stack);
-		ft_reverse_rotate(copy_stack);	
+		sa(stack_a);
+		rra(stack_a);	
 	}
 	else if (first > second && second < third && first > third)
-		ft_rotate(copy_stack);
+		ra(stack_a);
 	else if (first < second && second > third && first < third)
 	{
-		ft_swap(copy_stack);
-		ft_rotate(copy_stack);
+		sa(stack_a);
+		ra(stack_a);
 	}
 	else if (first < second && second > third && first > third)
 	{
-		ft_reverse_rotate(copy_stack);
+		rra(stack_a);
 	}
+	printf("SORT_CASE_3: \n");
+	print_list(stack_a);
 }
 
-void	sort_case_5(t_list **stack_a)
+void	sort_case_5(t_list **stack_a, t_list **stack_b)
 {
-	/* 
-	
-	 */
+	int		min;
+	int		index;
+
+	min = get_min(stack_a);
+	printf("min: %i\n", min);
+	index = get_index(stack_a, min);
+	printf("index min: %i\n", index);
+
+	while (*(int *)(*stack_a)->content != min)
+	{
+		if (index >= 3)
+			rra(stack_a);
+		else
+			ra(stack_a);
+	}
+	pa(stack_a, stack_b);
+	printf("sorting 1.....\n");
+	print_list(stack_a);
+	min = get_min(stack_a);
+	printf("min: %i\n", min);
+	index = get_index(stack_a, min);
+	printf("index min: %i\n", index);
+	while(*(int *)(*stack_a)->content != min)
+	{
+		if (index >= 2)
+			rra(stack_a);
+		else
+			ra(stack_a);
+	}
+	pa(stack_a, stack_b);
+	printf("sorting 2.....\n");
+	print_list(stack_a);
+	sort_case_3(stack_a);
+	printf("STACK_B: \n");
+	print_list(stack_b);
+	pb(stack_b, stack_a);
+	pb(stack_b, stack_a);
 }

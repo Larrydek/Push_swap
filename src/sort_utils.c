@@ -21,21 +21,39 @@
 	}
 } */
 
+int		check_order(t_list **stack_a)
+{
+	t_list	*copy_stack;
+
+	copy_stack = *stack_a;
+
+	while(copy_stack->next)
+	{
+		if (*(int *)(copy_stack)->content > *(int *)(copy_stack)->next->content)
+			return (0);
+		copy_stack = copy_stack->next;
+	}
+	return (1);
+}
+
 int		get_index(t_list **stack_a, int num)
 {
+	t_list *copy_stack;	
 	int index;
 
 	index = 0;
-
-	while (*stack_a)
+	copy_stack = *stack_a;
+	if (!copy_stack)
+		return (-1);
+	while ((copy_stack != NULL))
 	{
-		if (*(int *)(*stack_a)->content != num)
-		{
-			*stack_a = (*stack_a)->next;
-			index++;
-		}
-		return (index);
+		printf("index: %i\n", index);
+		if (*(int *)(copy_stack)->content == num)
+			break;
+		index++;
+		copy_stack = (copy_stack)->next;
 	}
+	return (index);
 }
 
 int		get_min(t_list **stack_a)
@@ -45,11 +63,11 @@ int		get_min(t_list **stack_a)
 
 	copy_stack = *stack_a;
 	if (!copy_stack)
-		return (NULL);
+		return (-1);
 	num = *(int *)(copy_stack)->content;
-	while (((copy_stack)->next))
+	while ((copy_stack))
 	{
-		if (num < *(int *)(copy_stack)->content)
+		if (num > *(int *)(copy_stack)->content)
 			num = *(int *)(copy_stack)->content;
 		(copy_stack) = (copy_stack)->next;
 	}

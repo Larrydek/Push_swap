@@ -18,7 +18,7 @@
 	No hace nada si hay uno o menos elementos
 */
 
-void	ft_swap(t_list **a)
+void	sa(t_list **a)
 {
 	t_list *first;
 	t_list *second;
@@ -32,4 +32,20 @@ void	ft_swap(t_list **a)
 		*a = second;
 	}
 	ft_printf("sa\n");
+}
+
+void	sb(t_list **b)
+{
+	t_list *first;
+	t_list *second;
+
+	if (*b && (*b)->next)
+	{
+		first = *b;
+		second = (*b)->next;
+		first->next = second->next;
+		second->next = first;
+		*b = second;
+	}
+	ft_printf("sb\n");
 }

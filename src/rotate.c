@@ -18,7 +18,7 @@
 	de forma que el primer elemento se convierte en el último.
 */
 
-void	ft_rotate(t_list **a)
+void	ra(t_list **a)
 {
 	t_list *last;
 
@@ -31,6 +31,7 @@ void	ft_rotate(t_list **a)
 	last->next = *a;
 	*a = (*a)->next;
 	last->next->next = NULL;
+	printf("ra\n");
 	//printf("Memory first->next: %p\n", first->next);
 }
 
@@ -40,7 +41,7 @@ void	ft_rotate(t_list **a)
 	posición, de forma que el último elemento se convierte en el primero.
 */
 
-void	ft_reverse_rotate(t_list **a)
+void	rra(t_list **a)
 {
 	t_list *last;
 	t_list *second_last;
@@ -55,5 +56,6 @@ void	ft_reverse_rotate(t_list **a)
 	second_last->next = NULL;
 	last->next = *a;
 	*a = last;
+	printf("rra\n");
 	//printf("Memory first->next: %p\n", first->next);
 }
