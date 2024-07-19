@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jde-clee <jde-clee@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 20:54:53 by jde-clee          #+#    #+#             */
-/*   Updated: 2024/07/18 07:52:31 by jde-clee         ###   ########.fr       */
+/*   Updated: 2024/07/19 04:17:26 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,30 +28,25 @@ int main(int argc, char **argv)
     char_nums = arg_cleaner(argv);
     len_char_nums = ft_strstrlen(char_nums);
 
-    //ft_printf("Len CHAR_NUMS: %i\n", len_char_nums);
+    ft_printf("Len CHAR_NUMS: %i\n", len_char_nums);
 	stack_a = arg_parser(char_nums, &stack_a);
 	ft_free_matrix(char_nums, len_char_nums);
 
 /* 	ft_printf(" ---- Original Stack_A -----\n");
 	print_list(&stack_a); */
 	if (!stack_a)
-		return (ft_printf("Error\n"));
-/* 
-	int *a;
-	int *b;
-	a = malloc(sizeof(int));
-	b = malloc(sizeof(int));
-	*a = 20;
-	*b = 42;
-
-	// stack_b = malloc(sizeof(t_list));
-	ft_lstadd_back(&stack_b, ft_lstnew(a));
-	ft_lstadd_back(&stack_b, ft_lstnew(b)); */
+		return (write(2, "Error\n", 6));
 
 	//ft_swap(&stack_a);
 	//ft_printf("STACK A (after swap):\n");
 	//print_list(&stack_a);
-	sort_to_10(&stack_a, &stack_b);/* 
+	
+	print_list(&stack_a);
+	normalizer(&stack_a);
+	print_list(&stack_a);
+	sort_to_10(&stack_a, &stack_b);
+	print_list(&stack_a);
+	/*sort_to_infinite(&stack_a, &stack_b);
 	if (check_order(&stack_a) == 1)
 		ft_printf("----> ORDENADA\n");
 	else

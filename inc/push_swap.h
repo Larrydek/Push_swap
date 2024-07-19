@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jde-clee <jde-clee@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 21:19:20 by jde-clee          #+#    #+#             */
-/*   Updated: 2024/07/18 04:33:36 by jde-clee         ###   ########.fr       */
+/*   Updated: 2024/07/19 05:28:54 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,14 @@ int		ft_strstrlen(char **argv);
 t_list *arg_parser(char **char_nums, t_list **stack_a);
 char	**arg_cleaner(char **argv);
 void	print_list(t_list **stack);
+
+//SORTS
 void	sort_case_2(t_list **stack_a);
 void	sort_case_3(t_list **stack_a);
 void	sort_case_5(t_list **stack_a, t_list **stack_b);
 void	sort_to_10(t_list **stack_a, t_list **stack_b);
+void	sort_to_infinite(t_list **stack_a, t_list **stack_b);
+void    normalizer(t_list **stack_a);
 
 //MOVEMENTS
 void	sa(t_list **a);
@@ -41,6 +45,7 @@ void    rra(t_list **a);
 //SORT UTILS
 int		get_index(t_list **stack_a, int num);
 int		get_min(t_list **stack_a);
+int		get_min_greather_than(t_list **stack_a, int	min);
 int		check_order(t_list **stack_a);
 
 #endif

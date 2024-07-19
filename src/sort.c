@@ -57,6 +57,8 @@ void	sort_case_3(t_list **stack_a)
 	print_list(stack_a);
 }
 
+
+
 void	sort_case_5(t_list **stack_a, t_list **stack_b)
 {
 	int		min;
@@ -147,4 +149,55 @@ void	sort_to_10(t_list **stack_a, t_list **stack_b)
 	}
 	else
 		sort_to_10(stack_a, stack_b);
+}
+
+void	sort_to_infinite(t_list **stack_a, t_list **stack_b)
+{
+	int		min;
+	int		index;
+	int		size_a;
+	int		size_b;
+
+	min = get_min(stack_a);
+	index = get_index(stack_a, min);
+	size_a = ft_lstsize(*stack_a);
+	size_b = ft_lstsize(*stack_b);
+
+	if (!(*stack_a) && check_order(stack_a) == -1)
+		return ;
+	if (check_order(stack_a) == 1 && ft_lstsize(*stack_b) == 0)
+	{
+		ft_printf("----> ORDENADA\n");
+		return ;
+	}
+
+	while (*(int *)(*stack_a)->content != min)
+	{
+		if (index >= size_a / 2)
+			rra(stack_a);
+		else
+			ra(stack_a);
+	}
+	pb(stack_a, stack_b);
+	//ft_printf("min: %i\n", min);
+	//ft_printf("index min: %i\n", index);
+	//print_list(stack_a);
+	//ft_printf("[Stack_a] --> size: %i\n", size_a);
+	//print_list(stack_b);
+	//ft_printf("[Stack_b] --> size: %i\n", size_b);
+	
+	//size_a = ft_lstsize(*stack_a);
+	//size_b = ft_lstsize(*stack_b);
+	size_a--;
+	size_b++;
+	//ft_printf("SIZE_A: %i\n", size_a);
+	//ft_printf("SIZE_B: %i\n", size_b);
+	if (size_a == 0)
+	{
+		while (size_b-- > 0)
+			pa(stack_b, stack_a);
+		return ;
+	}
+	else
+		sort_to_infinite(stack_a, stack_b);
 }
