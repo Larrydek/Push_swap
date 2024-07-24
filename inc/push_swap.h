@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 21:19:20 by jde-clee          #+#    #+#             */
-/*   Updated: 2024/07/19 05:28:54 by marvin           ###   ########.fr       */
+/*   Updated: 2024/07/24 04:08:20 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ void    rra(t_list **a);
 //SORT UTILS
 int		get_index(t_list **stack_a, int num);
 int		get_min(t_list **stack_a);
-int		get_min_greather_than(t_list **stack_a, int	min);
+int		next_min_than(t_list **stack_a, int	min);
 int		check_order(t_list **stack_a);
 
 #endif

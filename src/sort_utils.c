@@ -44,14 +44,15 @@ int		get_index(t_list **stack_a, int num)
 
 	index = 0;
 	copy_stack = *stack_a;
-	if (!copy_stack || !num)
+	if (!copy_stack)
 		return (-1);
 	while (copy_stack != NULL)
 	{
-		if (*(int *)(copy_stack)->content == num)
+		if (*(int *)copy_stack->content == num)
 			return (index);
-		index++;
-		copy_stack = (copy_stack)->next;
+		else
+			index++;
+		copy_stack = copy_stack->next;
 	}
 	return (-1);
 }
@@ -69,7 +70,7 @@ int		get_min(t_list **stack_a)
 	{
 		if (num > *(int *)(copy_stack)->content)
 			num = *(int *)(copy_stack)->content;
-		(copy_stack) = (copy_stack)->next;
+		copy_stack = copy_stack->next;
 	}
 	return (num);
 }
@@ -87,7 +88,7 @@ void	sort_case_2(t_list **stack_a)
 		sa(stack_a);
 }
 
-int		get_min_greather_than(t_list **stack_a, int	min)
+int		next_min_than(t_list **stack_a, int	min)
 {
 	t_list *copy_stack;
 	int num;
@@ -95,20 +96,17 @@ int		get_min_greather_than(t_list **stack_a, int	min)
 	copy_stack = *stack_a;
 	if (!copy_stack)
 		return (-1);
-	num = *(int *)copy_stack->content;
+	num = INT_MAX;
 	while ((copy_stack != NULL))
 	{
-		if ((num > *(int *)(copy_stack)->content) && (num > min))
-			num = *(int *)(copy_stack)->content;
-		printf("%i min_greather_than: ", num);
+		if ((num > *(int *)copy_stack->content) && (*(int *)copy_stack->content > min))
+			num = *(int *)copy_stack->content;
+		printf("num %i next_min_than ---> ", num);
 		printf("min:%i\n", min);
-		(copy_stack) = (copy_stack)->next;
-		if (num > min)
-			break ;
+		copy_stack = copy_stack->next;
 	}
 	//printf("%i min_greather_than: ", num);
 	//printf("min:%i\n", min);
-
 	return (num);
 }
 
@@ -126,7 +124,7 @@ void	normalizer(t_list **stack_a)
 	min = get_min(stack_a);
 	printf("min: %i\n", min);
 	min_index = get_index(stack_a, min);
-	printf("min_index: %i\n\n", min_index);
+	printf("min_index: %i\n", min_index);
 	lst_size = ft_lstsize(original_stack);
 
 	while (i < lst_size)
@@ -137,13 +135,15 @@ void	normalizer(t_list **stack_a)
 			min_index--;
 		}
 		(*stack_a)->index = i;
-		(*stack_a) = original_stack;
-		min_index = get_index(stack_a, min);
-		printf("min_index: %i\n", min_index);
-		min = get_min_greather_than(stack_a, min);
-		printf("min: %i\n", min);
 		printf("i: %i\n", i);
 		i++;
+		(*stack_a) = original_stack;
+		min = next_min_than(stack_a, min);
+		printf("min: %i\n", min);
+		min_index = get_index(stack_a, min);
+		printf("min_index: %i\n", min_index);
+		if (min_index == -1)
+			break;
 	}
 	print_list(&original_stack);
 }

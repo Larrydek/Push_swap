@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 20:54:53 by jde-clee          #+#    #+#             */
-/*   Updated: 2024/07/19 04:17:26 by marvin           ###   ########.fr       */
+/*   Updated: 2024/07/24 06:10:03 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,18 @@ int main(int argc, char **argv)
 	print_list(&stack_a);
 	normalizer(&stack_a);
 	print_list(&stack_a);
+	
+	
+	
 	sort_to_10(&stack_a, &stack_b);
 	print_list(&stack_a);
+	printf("index list:\n");
+	while (stack_a != NULL)
+	{
+		printf("[%i]\n", stack_a->index);
+		stack_a = stack_a->next;
+	}
+
 	/*sort_to_infinite(&stack_a, &stack_b);
 	if (check_order(&stack_a) == 1)
 		ft_printf("----> ORDENADA\n");
