@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 20:54:53 by jde-clee          #+#    #+#             */
-/*   Updated: 2024/07/24 06:10:03 by marvin           ###   ########.fr       */
+/*   Updated: 2024/07/25 08:03:38 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ int main(int argc, char **argv)
 {
 	t_list *stack_a;
 	t_list *stack_b;
+	//t_list *copy_stack;
 	char	**char_nums;
     int     len_char_nums;
 
@@ -25,47 +26,50 @@ int main(int argc, char **argv)
 
 	stack_a = NULL;
 	stack_b = NULL;
+	//copy_stack = NULL;
     char_nums = arg_cleaner(argv);
     len_char_nums = ft_strstrlen(char_nums);
 
-    ft_printf("Len CHAR_NUMS: %i\n", len_char_nums);
 	stack_a = arg_parser(char_nums, &stack_a);
 	ft_free_matrix(char_nums, len_char_nums);
 
-/* 	ft_printf(" ---- Original Stack_A -----\n");
-	print_list(&stack_a); */
 	if (!stack_a)
 		return (write(2, "Error\n", 6));
-
-	//ft_swap(&stack_a);
-	//ft_printf("STACK A (after swap):\n");
+	
 	//print_list(&stack_a);
-	
-	print_list(&stack_a);
+	//printf("Normalizer:\n");
 	normalizer(&stack_a);
-	print_list(&stack_a);
+	//printf("AFTER NORMALIZER\n");
+	//printf("Stack_a:\n");
+	//print_list(&stack_a);
+	//printf("Stack_b:\n");
+	//print_list(&stack_b);
+
 	
+	//printf("Chunking.....\n");
+	chunking(&stack_a, &stack_b);
+	//printf("Stack_a:\n");
+	//print_list(&stack_a);
+	//printf("Stack_b:\n");
+	//print_list(&stack_b);
+
+	//copy_stack = stack_b;
+	//printf("stack_b normalized: \n");
+	/*
 	
-	
-	sort_to_10(&stack_a, &stack_b);
-	print_list(&stack_a);
-	printf("index list:\n");
-	while (stack_a != NULL)
+	while (copy_stack != NULL)
 	{
-		printf("[%i]\n", stack_a->index);
-		stack_a = stack_a->next;
+		printf("[%i]", copy_stack->index);
+		copy_stack = copy_stack->next;
 	}
-
-	/*sort_to_infinite(&stack_a, &stack_b);
-	if (check_order(&stack_a) == 1)
-		ft_printf("----> ORDENADA\n");
-	else
-		ft_printf("----> DESORDENADA\n");
-
-	ft_printf("---- ORDERED STACK ----\n");
-	print_list(&stack_a);
-	print_list(&stack_b);
-	ft_printf("---- ORDERED STACK ----\n"); */
+	*/
+	sort_to_infinite(&stack_a, &stack_b);
+	
+	//printf("\nAFTER SORT: \n");
+	//printf("Stack_a:\n");
+	//print_list(&stack_a);
+	//printf("Stack_b:\n");
+	//print_list(&stack_b);
 
 	ft_lstclear(&stack_a, free);
 	return (0);
