@@ -5,12 +5,12 @@ int		check_order(t_list **stack_a)
 {
 	t_list	*copy_stack;
 
+	if (!stack_a || !*stack_a)
+		return 0;
 	copy_stack = *stack_a;
-	if (!copy_stack)
-		return (-1);
 	while(copy_stack && copy_stack->next)
 	{
-		if ((copy_stack)->index > (copy_stack)->next->index)
+		if (copy_stack->index > copy_stack->next->index)
 			return (0);
 		copy_stack = copy_stack->next;
 	}

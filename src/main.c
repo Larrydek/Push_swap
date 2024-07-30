@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 20:54:53 by jde-clee          #+#    #+#             */
-/*   Updated: 2024/07/29 15:37:53 by marvin           ###   ########.fr       */
+/*   Updated: 2024/07/30 15:10:48 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,37 +42,25 @@ int main(int argc, char **argv)
 	//printf("AFTER NORMALIZER\n");
 	//printf("Stack_a:\n");
 	//print_list(&stack_a);
-	//printf("Stack_b:\n");
-	//print_list(&stack_b);
 
-	
-	//printf("Chunking.....\n");
 	chunking(&stack_a, &stack_b);
-	//printf("Stack_a:\n");
-	//print_list(&stack_a);
-	//printf("Stack_b:\n");
-	//print_list(&stack_b);
 
-	//copy_stack = stack_b;
-	//printf("stack_b normalized: \n");
+	sort_to_infinite(&stack_a, &stack_b);
+	if (!check_order(&stack_a))
+		printf("DESORDENADA\n");
+	else
+		printf("LISTA ORDENADA\n");
+	//printf("\n AFTER SORT: \n");
+	//printf("Stack_a: \n");
+	//print_list(&stack_a);
+	//printf("INDEXES\n");
 	/*
-	
-	while (copy_stack != NULL)
+	while (stack_a != NULL)
 	{
-		printf("[%i]", copy_stack->index);
-		copy_stack = copy_stack->next;
+		printf("[%i]\n" , stack_a->index);
+		stack_a = stack_a->next;
 	}
 	*/
-	sort_to_infinite(&stack_a, &stack_b);
-	if (check_order(&stack_a))
-		printf("LISTA ORDENADA\n");
-	else
-		printf("DESORDENADA\n");
-	printf("\nAFTER SORT: \n");
-	printf("Stack_a:\n");
-	print_list(&stack_a);
-	//printf("Stack_b:\n");
-	//print_list(&stack_b);
 
 	ft_lstclear(&stack_a, free);
 	return (0);
