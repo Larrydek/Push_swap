@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 20:54:53 by jde-clee          #+#    #+#             */
-/*   Updated: 2024/07/25 08:03:38 by marvin           ###   ########.fr       */
+/*   Updated: 2024/07/29 15:37:53 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,10 +64,13 @@ int main(int argc, char **argv)
 	}
 	*/
 	sort_to_infinite(&stack_a, &stack_b);
-	
-	//printf("\nAFTER SORT: \n");
-	//printf("Stack_a:\n");
-	//print_list(&stack_a);
+	if (check_order(&stack_a))
+		printf("LISTA ORDENADA\n");
+	else
+		printf("DESORDENADA\n");
+	printf("\nAFTER SORT: \n");
+	printf("Stack_a:\n");
+	print_list(&stack_a);
 	//printf("Stack_b:\n");
 	//print_list(&stack_b);
 

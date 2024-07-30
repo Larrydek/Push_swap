@@ -10,7 +10,7 @@ int		check_order(t_list **stack_a)
 		return (-1);
 	while(copy_stack && copy_stack->next)
 	{
-		if (*(int *)(copy_stack)->content > *(int *)(copy_stack)->next->content)
+		if ((copy_stack)->index > (copy_stack)->next->index)
 			return (0);
 		copy_stack = copy_stack->next;
 	}

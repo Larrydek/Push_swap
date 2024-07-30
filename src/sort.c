@@ -151,7 +151,6 @@ void	sort_to_10(t_list **stack_a, t_list **stack_b)
 		sort_to_10(stack_a, stack_b);
 }
 
-
 void	sort_to_infinite(t_list **stack_a, t_list **stack_b)
 {
 	int		max_num;
@@ -161,20 +160,25 @@ void	sort_to_infinite(t_list **stack_a, t_list **stack_b)
 	max_num = ft_lstsize(*stack_b) - 1;
 	proximity = get_index_index(stack_b, max_num);
 	swap_flag = 0;
+
 	if (check_order(stack_a) == 1 && ft_lstsize(*stack_b) == 0)
 	{
 		ft_printf("----> ORDENADA\n");
 		return ;
 	}
-
 	//printf("proximity: %i\n", proximity);
 	//printf("max_num: %i\n", max_num);
 	while (max_num >= 0)
 	{
 		if (!ft_is_in(stack_b, max_num))
+		{
 			max_num--;
+			continue;
+		}
+		if (max_num < 0 || ft_lstsize(*stack_b) < 1)
+			return ;
 		proximity = get_index_index(stack_b, max_num);
-		if (proximity < max_num / 2)
+		if (proximity <= ft_lstsize(*stack_b) / 2)
 			rb(stack_b);
 		else
 			rrb(stack_b);
@@ -182,7 +186,6 @@ void	sort_to_infinite(t_list **stack_a, t_list **stack_b)
 		if (((*stack_b)->index) == max_num)
 		{
 			pa(stack_b, stack_a);
-			//max_num--;
 			//printf("max_num: %i\n", max_num);
 			//printf("proximity: %i\n", proximity);
 			if (swap_flag == 1)
@@ -191,7 +194,7 @@ void	sort_to_infinite(t_list **stack_a, t_list **stack_b)
 				swap_flag = 0;
 			}
 		}
-		if ((*stack_b)->index == (max_num - 1))
+		else if (((*stack_b)->index) == (max_num - 1))
 		{
 			pa(stack_b, stack_a);
 			swap_flag = 1;
