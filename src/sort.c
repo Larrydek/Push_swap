@@ -53,8 +53,7 @@ void	sort_case_3(t_list **stack_a)
 	{
 		rra(stack_a);
 	}
-	ft_printf("SORT_CASE_3: \n");
-	print_list(stack_a);
+	//print_list(stack_a);
 }
 
 
@@ -65,10 +64,7 @@ void	sort_case_5(t_list **stack_a, t_list **stack_b)
 	int		index;
 
 	min = get_min(stack_a);
-	ft_printf("min: %i\n", min);
 	index = get_index(stack_a, min);
-	ft_printf("index min: %i\n", index);
-
 	while (*(int *)(*stack_a)->content != min)
 	{
 		if (index >= 3)
@@ -115,10 +111,7 @@ void	sort_to_10(t_list **stack_a, t_list **stack_b)
 	if (!(*stack_a) && check_order(stack_a) == -1)
 		return ;
 	if (check_order(stack_a) == 1 && ft_lstsize(*stack_b) == 0)
-	{
-		ft_printf("----> ORDENADA\n");
 		return ;
-	}
 
 	while (*(int *)(*stack_a)->content != min)
 	{
@@ -128,19 +121,9 @@ void	sort_to_10(t_list **stack_a, t_list **stack_b)
 			ra(stack_a);
 	}
 	pb(stack_a, stack_b);
-	//ft_printf("min: %i\n", min);
-	//ft_printf("index min: %i\n", index);
-	//print_list(stack_a);
-	//ft_printf("[Stack_a] --> size: %i\n", size_a);
-	//print_list(stack_b);
-	//ft_printf("[Stack_b] --> size: %i\n", size_b);
 	
-	//size_a = ft_lstsize(*stack_a);
-	//size_b = ft_lstsize(*stack_b);
 	size_a--;
 	size_b++;
-	//ft_printf("SIZE_A: %i\n", size_a);
-	//ft_printf("SIZE_B: %i\n", size_b);
 	if (size_a == 0)
 	{
 		while (size_b-- > 0)
@@ -166,38 +149,57 @@ void	sort_to_infinite(t_list **stack_a, t_list **stack_b)
 		ft_printf("----> ORDENADA\n");
 		return ;
 	}
-	//printf("proximity: %i\n", proximity);
-	//printf("max_num: %i\n", max_num);
 	while (max_num >= 0)
 	{
+		if (max_num < 0 || ft_lstsize(*stack_b) < 1)
+			return ;
 		if (!ft_is_in(stack_b, max_num))
 		{
 			max_num--;
 			continue;
 		}
-		if (max_num < 0 || ft_lstsize(*stack_b) < 1)
-			return ;
+		if (((*stack_b)->index) == (max_num - 1))
+		{
+			pa(stack_b, stack_a);
+			swap_flag = 1;
+		}
 		proximity = get_index_index(stack_b, max_num);
 		if (proximity <= ft_lstsize(*stack_b) / 2)
 			rb(stack_b);
 		else
 			rrb(stack_b);
-		//printf("[%i]\n", (*stack_b)->index);
 		if (((*stack_b)->index) == max_num)
 		{
 			pa(stack_b, stack_a);
-			//printf("max_num: %i\n", max_num);
-			//printf("proximity: %i\n", proximity);
 			if (swap_flag == 1)
 			{
 				sa(stack_a);
 				swap_flag = 0;
 			}
 		}
-		else if (((*stack_b)->index) == (max_num - 1))
-		{
-			pa(stack_b, stack_a);
-			swap_flag = 1;
-		}
 	}
 }
+
+void	sorting(t_list **stack_a, t_list **stack_b)
+{
+	int		chunk_size;
+
+	chunk_size = ft_lstsize(*stack_a);
+	normalizer(stack_a);
+	if (check_order(stack_a) == 1)
+		return (ft_lstclear(stack_a, free));
+	else if (ft_lstsize(*stack_a) == 3)
+		sort_case_3(stack_a);
+	else if (ft_lstsize(*stack_a) <= 10)
+		sort_to_10(stack_a, stack_b);
+	else
+	{
+		if (ft_lstsize(*stack_a) < 100)
+			chunk_size = ft_lstsize(*stack_a) / 4;
+		else if (ft_lstsize(*stack_a) < 500)
+			chunk_size = ft_lstsize(*stack_a) / 8;
+		chunking(stack_a, stack_b, chunk_size);	
+		sort_to_infinite(stack_a, stack_b);
+	}
+}
+

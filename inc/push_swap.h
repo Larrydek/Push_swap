@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 21:19:20 by jde-clee          #+#    #+#             */
-/*   Updated: 2024/07/25 06:26:52 by marvin           ###   ########.fr       */
+/*   Updated: 2024/08/04 02:36:18 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ int		ft_strstrlen(char **argv);
 t_list *arg_parser(char **char_nums, t_list **stack_a);
 char	**arg_cleaner(char **argv);
 void	print_list(t_list **stack);
+void	print_list_indexes(t_list **stack);
 
 //SORTS
 void	sort_case_2(t_list **stack_a);
@@ -33,7 +34,8 @@ void	sort_case_5(t_list **stack_a, t_list **stack_b);
 void	sort_to_10(t_list **stack_a, t_list **stack_b);
 void	sort_to_infinite(t_list **stack_a, t_list **stack_b);
 void    normalizer(t_list **stack_a);
-void    chunking(t_list **stack_a, t_list **stack_b);
+void    chunking(t_list **stack_a, t_list **stack_b, int    chunk_size);
+void    sorting(t_list **stack_a, t_list **stack_b);
 
 //MOVEMENTS
 void	sa(t_list **a);

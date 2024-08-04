@@ -12,12 +12,11 @@
 
 #include "../inc/push_swap.h"
 
-/* 
-	pa push a:
-	Toma el primer elemento del stack b y lo pone el primero en el stack a.
-	No hace nada si b está vacío.
+/*
+	pb push b:
+Toma el primer elemento del stack a y lo pone el primero en el stack
+b. No hace nada si a está vacío.
 */
-
 void	pb(t_list **a, t_list **b)
 {
 	t_list *tmp;
@@ -30,6 +29,12 @@ void	pb(t_list **a, t_list **b)
 	*a = tmp;
 	ft_printf("pb\n");
 }
+
+/* 
+	pa push a:
+	Toma el primer elemento del stack b y lo pone el primero en el stack a.
+	No hace nada si b está vacío.
+*/
 
 void	pa(t_list **b, t_list **a)
 {

@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 19:22:48 by jde-clee          #+#    #+#             */
-/*   Updated: 2024/07/25 06:26:04 by marvin           ###   ########.fr       */
+/*   Updated: 2024/08/03 23:56:45 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,20 @@ void	print_list(t_list **stack)
 	while (tmp)
 	{
 		ft_printf("[%i]", *(int *)(tmp)->content);
+		//ft_printf("stack->content MEMORY dir: %p\n", (void *)tmp->content);
+		tmp = tmp->next;
+	}
+	ft_printf("\n");
+}
+
+void	print_list_indexes(t_list **stack)
+{
+	t_list *tmp;
+
+	tmp = *stack;
+	while (tmp)
+	{
+		ft_printf("[%i]", tmp->index);
 		//ft_printf("stack->content MEMORY dir: %p\n", (void *)tmp->content);
 		tmp = tmp->next;
 	}

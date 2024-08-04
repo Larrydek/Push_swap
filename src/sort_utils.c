@@ -41,9 +41,7 @@ void	normalizer(t_list **stack_a)
 	i = 0;
 	original_stack = *stack_a;
 	min = get_min(stack_a);
-	//printf("min: %i\n", min);
 	min_index = get_index(stack_a, min);
-	//printf("min_index: %i\n", min_index);
 	lst_size = ft_lstsize(original_stack);
 
 	while (i < lst_size)
@@ -54,41 +52,32 @@ void	normalizer(t_list **stack_a)
 			min_index--;
 		}
 		(*stack_a)->index = i;
-		//printf("i: %i\n", i);
 		i++;
 		(*stack_a) = original_stack;
 		min = next_min_than(stack_a, min);
-		//printf("min: %i\n", min);
 		min_index = get_index(stack_a, min);
-		//printf("min_index: %i\n", min_index);
 		if (min_index == -1)
 			break;
 	}
 }
 
-void	chunking(t_list **stack_a, t_list **stack_b)
+void	chunking(t_list **stack_a, t_list **stack_b, int	chunk_size)
 {
-	int	lstsize;
-	int key_nbr;
-	int	num_chunks;
 	int i;
 	int counter;
 
-	lstsize = ft_lstsize(*stack_a);
-	num_chunks = 4;
-	key_nbr = lstsize / num_chunks;
 	i = 1;
 	counter = 0;
 
-	while ((key_nbr * i) <= lstsize)
+	while (ft_lstsize(*stack_a) > 0)
 	{
-		if ((*stack_a)->index <= (key_nbr * i))
+		if ((*stack_a)->index <= (chunk_size * i))
 		{
 			pb(stack_a, stack_b);
 			counter++;
 		}
 		rra(stack_a);
-		if (counter == (key_nbr * i))
+		if (counter == (chunk_size * i))
 			i++;
 	}
 }
