@@ -185,7 +185,6 @@ void	sorting(t_list **stack_a, t_list **stack_b)
 	int		chunk_size;
 
 	chunk_size = ft_lstsize(*stack_a);
-	normalizer(stack_a);
 	if (check_order(stack_a) == 1)
 		return (ft_lstclear(stack_a, free));
 	else if (ft_lstsize(*stack_a) == 3)

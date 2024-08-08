@@ -51,4 +51,33 @@ char **arg_cleaner(char **argv)
     }
     char_nums = ft_split(aux, ' ');
 	return (char_nums);
+    
+}
+
+
+
+int arg_checker(char **char_nums)
+{
+    int i;
+    int j;
+    i = 0;
+    j = 0;
+	if (!char_nums)
+		return (0);
+    while (char_nums[i] != 0)
+    {
+        while (char_nums[i][j] != 0)
+		{
+			printf("%c\n", char_nums[i][j]);
+			if (char_nums[i][j] == '-' || char_nums[i][j] == '+' ||
+            	char_nums[i][j] == ' ')
+				j++;
+			if (char_nums[i][j] < '0' || char_nums[i][j] > '9')
+				return (0);
+			j++;
+		}
+		j = 0;
+		i++;
+    }
+	return (1);
 }
