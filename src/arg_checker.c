@@ -68,7 +68,7 @@ int arg_checker(char **char_nums)
     {
         while (char_nums[i][j] != 0)
 		{
-			printf("%c\n", char_nums[i][j]);
+			//printf("%c\n", char_nums[i][j]);
 			if (char_nums[i][j] == '-' || char_nums[i][j] == '+' ||
             	char_nums[i][j] == ' ')
 				j++;

@@ -194,9 +194,9 @@ void	sorting(t_list **stack_a, t_list **stack_b)
 	else
 	{
 		if (ft_lstsize(*stack_a) <= 100)
-			chunk_size = ft_lstsize(*stack_a) / 4;
+			chunk_size = ft_lstsize(*stack_a) / 6;
 		else if (ft_lstsize(*stack_a) <= 500)
-			chunk_size = ft_lstsize(*stack_a) / 8;
+			chunk_size = ft_lstsize(*stack_a) / 12;
 		chunking(stack_a, stack_b, chunk_size);	
 		sort_to_infinite(stack_a, stack_b);
 	}
