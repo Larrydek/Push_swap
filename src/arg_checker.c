@@ -12,7 +12,7 @@
 
 #include "../inc/push_swap.h"
 
-t_list *arg_parser(char **char_nums, t_list **stack_a)
+int arg_parser(char **char_nums, t_list **stack_a)
 {
 	t_list *new;
     int     *num;
@@ -23,7 +23,7 @@ t_list *arg_parser(char **char_nums, t_list **stack_a)
     while (char_nums[i])
     {
         if ((ft_atol(char_nums[i]) < INT_MIN) || (ft_atol(char_nums[i]) > INT_MAX))
-            return (free(char_nums), NULL);
+            return (ft_lstclear(stack_a, free), 0);
         num = malloc(sizeof(int) * 1);
         *num = ft_atoi(char_nums[i]);
         new = ft_lstnew(num);
@@ -31,7 +31,7 @@ t_list *arg_parser(char **char_nums, t_list **stack_a)
 		    ft_lstadd_back(stack_a, new);
         i++;
     }
-    return (*stack_a);
+    return (1);
 }
 
 char **arg_cleaner(char **argv)
@@ -51,10 +51,7 @@ char **arg_cleaner(char **argv)
     }
     char_nums = ft_split(aux, ' ');
 	return (char_nums);
-    
 }
-
-
 
 int arg_checker(char **char_nums)
 {
@@ -62,13 +59,13 @@ int arg_checker(char **char_nums)
     int j;
     i = 0;
     j = 0;
+
 	if (!char_nums)
 		return (0);
     while (char_nums[i] != 0)
     {
         while (char_nums[i][j] != 0)
 		{
-			//printf("%c\n", char_nums[i][j]);
 			if (char_nums[i][j] == '-' || char_nums[i][j] == '+' ||
             	char_nums[i][j] == ' ')
 				j++;
@@ -80,4 +77,28 @@ int arg_checker(char **char_nums)
 		i++;
     }
 	return (1);
+}
+
+int     check_duplicates(t_list **stack_a)
+{
+    t_list *copy_stack;
+    t_list *i;
+    int lst_size;
+
+    lst_size = ft_lstsize(*stack_a) - 1;
+    copy_stack = *stack_a;
+    i = NULL;
+    while (lst_size > 0)
+    {
+        i = copy_stack->next;
+        while (i != NULL)
+        {
+            if (*(int *)copy_stack->content == *(int *)i->content)
+                return (1);
+            i = i->next;
+        }
+        lst_size--;
+        copy_stack = copy_stack->next;
+    }
+    return (0);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jde-clee <jde-clee@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 20:54:53 by jde-clee          #+#    #+#             */
-/*   Updated: 2024/08/08 07:24:56 by jde-clee         ###   ########.fr       */
+/*   Updated: 2024/08/13 12:56:20 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,9 @@ int main(int argc, char **argv)
 		return (write(2, "Error\n", 6), 0);
     char_nums = arg_cleaner(argv);
     len_char_nums = ft_strstrlen(char_nums);
-	stack_a = arg_parser(char_nums, &stack_a);
-	if (arg_checker(char_nums) == 1)
+	if (!arg_parser(char_nums, &stack_a))
+		return (ft_free_matrix(char_nums, len_char_nums), 0);
+	if ((arg_checker(char_nums) == 1 && check_duplicates(&stack_a) == 0))
 		ft_free_matrix(char_nums, len_char_nums);
 	else
 		{

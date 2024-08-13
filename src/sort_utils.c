@@ -12,8 +12,8 @@ int		check_order(t_list **stack_a)
 	copy_stack = *stack_a;
 	while(copy_stack && copy_stack->next)
 	{
-		printf("HERE YES\n");
-		printf("%i -- %i\n", copy_stack->index, copy_stack->next->index);
+		//printf("HERE YES\n");
+		//printf("%i -- %i\n", copy_stack->index, copy_stack->next->index);
 		if (copy_stack->index > copy_stack->next->index)
 			return (0);
 		copy_stack = copy_stack->next;

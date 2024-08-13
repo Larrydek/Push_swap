@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jde-clee <jde-clee@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 21:19:20 by jde-clee          #+#    #+#             */
-/*   Updated: 2024/08/08 07:23:35 by jde-clee         ###   ########.fr       */
+/*   Updated: 2024/08/13 12:53:37 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,12 @@
 # include "../lib/printf/inc/ft_printf.h"
 
 int		ft_strstrlen(char **argv);
-t_list  *arg_parser(char **char_nums, t_list **stack_a);
+int     arg_parser(char **char_nums, t_list **stack_a);
 char	**arg_cleaner(char **argv);
 int     arg_checker(char **char_nums);
 void	print_list(t_list **stack);
 void	print_list_indexes(t_list **stack);
+int     check_duplicates(t_list **stack_a);
 
 //SORTS
 void	sort_case_2(t_list **stack_a);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jde-clee <jde-clee@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/31 18:16:41 by jde-clee          #+#    #+#             */
-/*   Updated: 2024/02/14 19:06:03 by jde-clee         ###   ########.fr       */
+/*   Updated: 2024/08/13 13:10:07 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,7 @@ long	ft_atol(char *str)
 		number = number * 10 + (str[i] - 48);
 		i++;
 	}
+	//printf("%li\n", number * sign);
 	return (number * sign);
 }
 
