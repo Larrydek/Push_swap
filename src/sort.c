@@ -56,8 +56,6 @@ void	sort_case_3(t_list **stack_a)
 	//print_list(stack_a);
 }
 
-
-
 void	sort_case_5(t_list **stack_a, t_list **stack_b)
 {
 	int		min;
