@@ -1,26 +1,21 @@
 #include "../inc/push_swap.h"
 
-
-int		check_order(t_list **stack_a)
+int	check_order(t_list **stack_a)
 {
 	t_list	*copy_stack;
 
 	if (!stack_a || !*stack_a)
 		return (0);
-
 	normalizer(stack_a);
 	copy_stack = *stack_a;
-	while(copy_stack && copy_stack->next)
+	while (copy_stack && copy_stack->next)
 	{
-		//printf("HERE YES\n");
-		//printf("%i -- %i\n", copy_stack->index, copy_stack->next->index);
 		if (copy_stack->index > copy_stack->next->index)
 			return (0);
 		copy_stack = copy_stack->next;
 	}
 	return (1);
 }
-
 
 void	sort_case_2(t_list **stack_a)
 {
@@ -29,7 +24,6 @@ void	sort_case_2(t_list **stack_a)
 
 	first = *(int *)(*stack_a)->content;
 	second = *(int *)(*stack_a)->next->content;
-
 	if (first > second)
 		sa(stack_a);
 }
@@ -47,7 +41,6 @@ void	normalizer(t_list **stack_a)
 	min = get_min(stack_a);
 	min_index = get_index(stack_a, min);
 	lst_size = ft_lstsize(original_stack);
-
 	while (i < lst_size)
 	{
 		while (min_index > 0)
@@ -67,12 +60,11 @@ void	normalizer(t_list **stack_a)
 
 void	chunking(t_list **stack_a, t_list **stack_b, int	chunk_size)
 {
-	int i;
-	int counter;
+	int	i;
+	int	counter;
 
 	i = 1;
 	counter = 0;
-
 	while (ft_lstsize(*stack_a) > 0)
 	{
 		if ((*stack_a)->index <= (chunk_size * i))
@@ -86,12 +78,11 @@ void	chunking(t_list **stack_a, t_list **stack_b, int	chunk_size)
 	}
 }
 
-int		ft_is_in(t_list **stack, int num)
+int	ft_is_in(t_list **stack, int num)
 {
-	t_list *copy_stack;
+	t_list	*copy_stack;
 
 	copy_stack = *stack;
-
 	if (!stack)
 		return (-1);
 	while (copy_stack != NULL)

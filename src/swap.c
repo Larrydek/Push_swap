@@ -20,8 +20,8 @@
 
 void	sa(t_list **a)
 {
-	t_list *first;
-	t_list *second;
+	t_list	*first;
+	t_list	*second;
 
 	if (*a && (*a)->next)
 	{
@@ -36,8 +36,8 @@ void	sa(t_list **a)
 
 void	sb(t_list **b)
 {
-	t_list *first;
-	t_list *second;
+	t_list	*first;
+	t_list	*second;
 
 	if (*b && (*b)->next)
 	{

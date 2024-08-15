@@ -19,10 +19,10 @@ b. No hace nada si a está vacío.
 */
 void	pb(t_list **a, t_list **b)
 {
-	t_list *tmp;
+	t_list	*tmp;
 
 	if (!a || !*a || ft_lstsize(*a) < 1)
-		return;
+		return ;
 	tmp = (*a)->next;
 	(*a)->next = *b;
 	*b = *a;
@@ -38,26 +38,13 @@ void	pb(t_list **a, t_list **b)
 
 void	pa(t_list **b, t_list **a)
 {
-	t_list *tmp;
+	t_list	*tmp;
 
 	if (!b || !*b || ft_lstsize(*b) < 1)
-		return;
+		return ;
 	tmp = (*b)->next;
 	(*b)->next = *a;
 	*a = *b;
 	*b = tmp;
 	ft_printf("pa\n");
 }
-
-/* void	ft_push(t_list *a, t_list *b)
-{
-	int *num;
-
-	num = malloc(sizeof(int));
-	*num = *((int *)(ft_lstlast(b)->content));
-	if ((ft_lstsize(b)) > 0)
-	{
-		ft_lstadd_back(&a, ft_lstnew(num));
-		ft_lstdelone(b, free);
-	}
-} */

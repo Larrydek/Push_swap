@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jde-clee <jde-clee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 19:22:48 by jde-clee          #+#    #+#             */
-/*   Updated: 2024/08/03 23:56:45 by marvin           ###   ########.fr       */
+/*   Updated: 2024/08/15 05:34:47 by jde-clee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	ft_strstrlen(char **argv)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	if (!argv)
@@ -26,13 +26,12 @@ int	ft_strstrlen(char **argv)
 
 void	print_list(t_list **stack)
 {
-	t_list *tmp;
+	t_list	*tmp;
 
 	tmp = *stack;
 	while (tmp)
 	{
 		ft_printf("[%i]", *(int *)(tmp)->content);
-		//ft_printf("stack->content MEMORY dir: %p\n", (void *)tmp->content);
 		tmp = tmp->next;
 	}
 	ft_printf("\n");
@@ -40,22 +39,21 @@ void	print_list(t_list **stack)
 
 void	print_list_indexes(t_list **stack)
 {
-	t_list *tmp;
+	t_list	*tmp;
 
 	tmp = *stack;
 	while (tmp)
 	{
 		ft_printf("[%i]", tmp->index);
-		//ft_printf("stack->content MEMORY dir: %p\n", (void *)tmp->content);
 		tmp = tmp->next;
 	}
 	ft_printf("\n");
 }
 
-int		get_min(t_list **stack_a)
+int	get_min(t_list **stack_a)
 {
-	t_list *copy_stack;
-	int num;
+	t_list	*copy_stack;
+	int		num;
 
 	copy_stack = *stack_a;
 	if (!copy_stack)
@@ -70,10 +68,10 @@ int		get_min(t_list **stack_a)
 	return (num);
 }
 
-int		next_min_than(t_list **stack_a, int	min)
+int	next_min_than(t_list **stack_a, int	min)
 {
-	t_list *copy_stack;
-	int num;
+	t_list	*copy_stack;
+	int		num;
 
 	copy_stack = *stack_a;
 	if (!copy_stack)
@@ -81,21 +79,18 @@ int		next_min_than(t_list **stack_a, int	min)
 	num = INT_MAX;
 	while ((copy_stack != NULL))
 	{
-		if ((num > *(int *)copy_stack->content) && (*(int *)copy_stack->content > min))
+		if ((num > *(int *)copy_stack->content)
+			&& (*(int *)copy_stack->content > min))
 			num = *(int *)copy_stack->content;
-		//printf("num %i next_min_than ---> ", num);
-		//printf("min:%i\n", min);
 		copy_stack = copy_stack->next;
 	}
-	//printf("%i min_greather_than: ", num);
-	//printf("min:%i\n", min);
 	return (num);
 }
 
-int		get_index(t_list **stack_a, int num)
+int	get_index(t_list **stack_a, int num)
 {
-	t_list *copy_stack;	
-	int index;
+	t_list	*copy_stack;	
+	int		index;
 
 	index = 0;
 	copy_stack = *stack_a;
@@ -112,10 +107,10 @@ int		get_index(t_list **stack_a, int num)
 	return (-1);
 }
 
-int		get_index_index(t_list **stack_a, int num)
+int	get_index_index(t_list **stack_a, int num)
 {
-	t_list *copy_stack;	
-	int index;
+	t_list	*copy_stack;	
+	int		index;
 
 	index = 0;
 	copy_stack = *stack_a;

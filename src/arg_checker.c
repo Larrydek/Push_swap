@@ -12,17 +12,17 @@
 
 #include "../inc/push_swap.h"
 
-int arg_parser(char **char_nums, t_list **stack_a)
+int	arg_parser(char **char_nums, t_list **stack_a)
 {
-	t_list *new;
-	int     *num;
+	t_list	*new;
+	int		*num;
 	int		i;
 
 	i = 0;
-
 	while (char_nums[i])
 	{
-		if ((ft_atol(char_nums[i]) < INT_MIN) || (ft_atol(char_nums[i]) > INT_MAX))
+		if ((ft_atol(char_nums[i]) < INT_MIN) ||
+			(ft_atol(char_nums[i]) > INT_MAX))
 			return (ft_lstclear(stack_a, free), 0);
 		num = malloc(sizeof(int) * 1);
 		*num = ft_atoi(char_nums[i]);
@@ -34,16 +34,15 @@ int arg_parser(char **char_nums, t_list **stack_a)
 	return (1);
 }
 
-char **arg_cleaner(char **argv)
+char	**arg_cleaner(char **argv)
 {
-	char    **char_nums;
-	char    *aux;
-	int     i;
-	
+	char	**char_nums;
+	char	*aux;
+	int		i;
 
 	aux = ft_strdup(argv[1]);
 	i = 2;
-	while(argv[i])
+	while (argv[i])
 	{
 		aux = ft_strjoin(aux, " ");
 		aux = ft_strjoin(aux, argv[i]);
@@ -53,13 +52,13 @@ char **arg_cleaner(char **argv)
 	return (char_nums);
 }
 
-int arg_checker(char **char_nums)
+int	arg_checker(char **char_nums)
 {
-	int i;
-	int j;
+	int	i;
+	int	j;
+
 	i = 0;
 	j = 0;
-
 	if (!char_nums)
 		return (0);
 	while (char_nums[i] != 0)
@@ -79,11 +78,11 @@ int arg_checker(char **char_nums)
 	return (1);
 }
 
-int     check_duplicates(t_list **stack_a)
+int	check_duplicates(t_list **stack_a)
 {
-	t_list *copy_stack;
-	t_list *i;
-	int lst_size;
+	t_list	*copy_stack;
+	t_list	*i;
+	int		lst_size;
 
 	lst_size = ft_lstsize(*stack_a) - 1;
 	copy_stack = *stack_a;
