@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/31 18:16:41 by jde-clee          #+#    #+#             */
-/*   Updated: 2024/08/13 13:10:07 by marvin           ###   ########.fr       */
+/*   Updated: 2024/08/15 04:39:25 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,10 +60,11 @@ long	ft_atol(char *str)
 	}
 	while (str[i] >= '0' && str[i] <= '9')
 	{
+		if (str[i + 1] == '-' || str[i + 1] == '+')
+			return ((long)INT_MAX + 1);
 		number = number * 10 + (str[i] - 48);
 		i++;
 	}
-	//printf("%li\n", number * sign);
 	return (number * sign);
 }
 
