@@ -6,36 +6,11 @@
 /*   By: jde-clee <jde-clee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 19:22:48 by jde-clee          #+#    #+#             */
-/*   Updated: 2024/08/15 05:34:47 by jde-clee         ###   ########.fr       */
+/*   Updated: 2024/08/19 04:18:07 by jde-clee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
-
-int	ft_strstrlen(char **argv)
-{
-	int	i;
-
-	i = 0;
-	if (!argv)
-		return (0);
-	while (argv[i] != 0)
-		i++;
-	return (i);
-}
-
-void	print_list(t_list **stack)
-{
-	t_list	*tmp;
-
-	tmp = *stack;
-	while (tmp)
-	{
-		ft_printf("[%i]", *(int *)(tmp)->content);
-		tmp = tmp->next;
-	}
-	ft_printf("\n");
-}
 
 void	print_list_indexes(t_list **stack)
 {
@@ -55,9 +30,9 @@ int	get_min(t_list **stack_a)
 	t_list	*copy_stack;
 	int		num;
 
-	copy_stack = *stack_a;
-	if (!copy_stack)
+	if (!stack_a || !*stack_a)
 		return (-1);
+	copy_stack = *stack_a;
 	num = *(int *)(copy_stack)->content;
 	while ((copy_stack != NULL))
 	{
@@ -68,20 +43,19 @@ int	get_min(t_list **stack_a)
 	return (num);
 }
 
-int	next_min_than(t_list **stack_a, int	min)
+int	get_max(t_list **stack_a)
 {
 	t_list	*copy_stack;
 	int		num;
 
-	copy_stack = *stack_a;
-	if (!copy_stack)
+	if (!stack_a || !*stack_a)
 		return (-1);
-	num = INT_MAX;
+	copy_stack = *stack_a;
+	num = *(int *)(copy_stack)->content;
 	while ((copy_stack != NULL))
 	{
-		if ((num > *(int *)copy_stack->content)
-			&& (*(int *)copy_stack->content > min))
-			num = *(int *)copy_stack->content;
+		if (num < *(int *)(copy_stack)->content)
+			num = *(int *)(copy_stack)->content;
 		copy_stack = copy_stack->next;
 	}
 	return (num);
@@ -93,9 +67,9 @@ int	get_index(t_list **stack_a, int num)
 	int		index;
 
 	index = 0;
-	copy_stack = *stack_a;
-	if (!copy_stack)
+	if (!stack_a || !*stack_a)
 		return (-1);
+	copy_stack = *stack_a;
 	while (copy_stack != NULL)
 	{
 		if (*(int *)copy_stack->content == num)
@@ -113,9 +87,9 @@ int	get_index_index(t_list **stack_a, int num)
 	int		index;
 
 	index = 0;
-	copy_stack = *stack_a;
-	if (!copy_stack)
+	if (!stack_a || !*stack_a)
 		return (-1);
+	copy_stack = *stack_a;
 	while (copy_stack != NULL)
 	{
 		if (copy_stack->index == num)

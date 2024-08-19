@@ -1,41 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*   chunks.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jde-clee <jde-clee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/07 04:26:31 by jde-clee          #+#    #+#             */
-/*   Updated: 2024/08/19 04:14:18 by jde-clee         ###   ########.fr       */
+/*   Created: 2024/08/19 04:10:34 by jde-clee          #+#    #+#             */
+/*   Updated: 2024/08/19 04:18:20 by jde-clee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/libft.h"
+#include "../inc/push_swap.h"
 
-char	*ft_strjoin(char *s1, char *s2)
+void	chunking(t_list **stack_a, t_list **stack_b, int chunk_size)
 {
-	int		i;
-	int		j;
-	int		len_s1s2;
-	char	*str;
+	int	i;
+	int	counter;
 
-	i = 0;
-	j = 0;
-	len_s1s2 = ft_strlen(s1) + ft_strlen(s2);
-	str = (char *)malloc((len_s1s2 + 1) * sizeof(char));
-	if (!str)
-		return (free(s1), NULL);
-	while (s1[i] != '\0')
+	i = 1;
+	counter = 0;
+	while (ft_lstsize(*stack_a) > 0)
 	{
-		str[i] = s1[i];
-		i++;
+		if ((*stack_a)->index <= (chunk_size * i))
+		{
+			pb(stack_a, stack_b);
+			counter++;
+		}
+		rra(stack_a);
+		if (counter == (chunk_size * i))
+			i++;
 	}
-	while (s2[j] != '\0')
-	{
-		str[i + j] = s2[j];
-		j++;
-	}
-	str[i + j] = '\0';
-	free(s1);
-	return (str);
 }

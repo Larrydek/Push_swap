@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   sort_utils.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jde-clee <jde-clee@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/08/19 04:16:47 by jde-clee          #+#    #+#             */
+/*   Updated: 2024/08/19 04:17:32 by jde-clee         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../inc/push_swap.h"
 
 int	check_order(t_list **stack_a)
@@ -15,17 +27,6 @@ int	check_order(t_list **stack_a)
 		copy_stack = copy_stack->next;
 	}
 	return (1);
-}
-
-void	sort_case_2(t_list **stack_a)
-{
-	int		first;
-	int		second;
-
-	first = *(int *)(*stack_a)->content;
-	second = *(int *)(*stack_a)->next->content;
-	if (first > second)
-		sa(stack_a);
 }
 
 void	normalizer(t_list **stack_a)
@@ -48,34 +49,32 @@ void	normalizer(t_list **stack_a)
 			(*stack_a) = (*stack_a)->next;
 			min_index--;
 		}
-		(*stack_a)->index = i;
-		i++;
+		(*stack_a)->index = i++;
 		(*stack_a) = original_stack;
 		min = next_min_than(stack_a, min);
 		min_index = get_index(stack_a, min);
 		if (min_index == -1)
-			break;
+			break ;
 	}
 }
 
-void	chunking(t_list **stack_a, t_list **stack_b, int	chunk_size)
+int	next_min_than(t_list **stack_a, int min)
 {
-	int	i;
-	int	counter;
+	t_list	*copy_stack;
+	int		num;
 
-	i = 1;
-	counter = 0;
-	while (ft_lstsize(*stack_a) > 0)
+	if (!stack_a || !*stack_a)
+		return (-1);
+	copy_stack = *stack_a;
+	num = INT_MAX;
+	while ((copy_stack != NULL))
 	{
-		if ((*stack_a)->index <= (chunk_size * i))
-		{
-			pb(stack_a, stack_b);
-			counter++;
-		}
-		rra(stack_a);
-		if (counter == (chunk_size * i))
-			i++;
+		if ((num > *(int *)copy_stack->content)
+			&& (*(int *)copy_stack->content > min))
+			num = *(int *)copy_stack->content;
+		copy_stack = copy_stack->next;
 	}
+	return (num);
 }
 
 int	ft_is_in(t_list **stack, int num)
@@ -92,4 +91,12 @@ int	ft_is_in(t_list **stack, int num)
 		copy_stack = copy_stack->next;
 	}
 	return (0);
+}
+
+void	shortest_rotate(t_list **stack_b, int max_num)
+{
+	if (get_index_index(stack_b, max_num) <= ft_lstsize(*stack_b) / 2)
+		rb(stack_b);
+	else
+		rrb(stack_b);
 }

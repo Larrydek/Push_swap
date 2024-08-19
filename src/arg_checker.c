@@ -21,8 +21,8 @@ int	arg_parser(char **char_nums, t_list **stack_a)
 	i = 0;
 	while (char_nums[i])
 	{
-		if ((ft_atol(char_nums[i]) < INT_MIN) ||
-			(ft_atol(char_nums[i]) > INT_MAX))
+		if ((ft_atol(char_nums[i]) < INT_MIN)
+			|| (ft_atol(char_nums[i]) > INT_MAX))
 			return (ft_lstclear(stack_a, free), 0);
 		num = malloc(sizeof(int) * 1);
 		*num = ft_atoi(char_nums[i]);
@@ -100,4 +100,17 @@ int	check_duplicates(t_list **stack_a)
 		copy_stack = copy_stack->next;
 	}
 	return (0);
+}
+
+void	print_list(t_list **stack)
+{
+	t_list	*tmp;
+
+	tmp = *stack;
+	while (tmp)
+	{
+		ft_printf("[%i]", *(int *)(tmp)->content);
+		tmp = tmp->next;
+	}
+	ft_printf("\n");
 }
