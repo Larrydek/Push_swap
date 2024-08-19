@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jde-clee <jde-clee@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 20:54:53 by jde-clee          #+#    #+#             */
-/*   Updated: 2024/08/19 04:19:40 by jde-clee         ###   ########.fr       */
+/*   Updated: 2024/08/19 19:34:21 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,10 @@ int	main(int argc, char **argv)
 
 	stack_a = NULL;
 	stack_b = NULL;
-	if (argc < 2)
-		return (write(2, "Error\n", 6), 0);
+	if (argc++ == 1)
+		return (0);
+	else if (argc == 2)
+		return (write(1, "Error\n", 6), 0);
 	char_nums = arg_cleaner(argv);
 	len_char_nums = ft_strstrlen(char_nums);
 	if (!arg_parser(char_nums, &stack_a) || !arg_checker(char_nums)
@@ -30,15 +32,12 @@ int	main(int argc, char **argv)
 	{
 		ft_free_matrix(char_nums, len_char_nums);
 		ft_lstclear(&stack_a, free);
-		return (write(2, "Error\n", 6), 0);
+		return (write(1, "Error\n", 6), 0);
 	}
 	else if ((arg_checker(char_nums) == 1 && check_duplicates(&stack_a) == 0))
 		ft_free_matrix(char_nums, len_char_nums);
 	if (check_order(&stack_a) == 0)
 		sorting(&stack_a, &stack_b);
-	print_list(&stack_a);
-	if (check_order(&stack_a) == 1)
-		printf("ORDENADO\n");
 	ft_lstclear(&stack_a, free);
 	return (0);
 }

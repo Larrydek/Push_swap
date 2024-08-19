@@ -143,7 +143,7 @@ void	sorting(t_list **stack_a, t_list **stack_b)
 	int		chunk_size;
 
 	if (!stack_a || !(*stack_a))
-		return ((void)write(2, "Error\n", 6));
+		return ((void)write(1, "Error\n", 6));
 	if (check_order(stack_a))
 		return ;
 	chunk_size = ft_lstsize(*stack_a);
