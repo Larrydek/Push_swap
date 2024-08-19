@@ -6,7 +6,7 @@
 /*   By: jde-clee <jde-clee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 20:54:53 by jde-clee          #+#    #+#             */
-/*   Updated: 2024/08/19 04:18:29 by jde-clee         ###   ########.fr       */
+/*   Updated: 2024/08/19 04:19:40 by jde-clee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,8 @@ int	main(int argc, char **argv)
 	if (check_order(&stack_a) == 0)
 		sorting(&stack_a, &stack_b);
 	print_list(&stack_a);
+	if (check_order(&stack_a) == 1)
+		printf("ORDENADO\n");
 	ft_lstclear(&stack_a, free);
 	return (0);
 }
