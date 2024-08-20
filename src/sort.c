@@ -144,8 +144,6 @@ void	sorting(t_list **stack_a, t_list **stack_b)
 
 	if (!stack_a || !(*stack_a))
 		return ((void)write(1, "Error\n", 6));
-	if (check_order(stack_a))
-		return ;
 	chunk_size = ft_lstsize(*stack_a);
 	if (check_order(stack_a) == 1)
 		return (ft_lstclear(stack_a, free));
@@ -153,6 +151,8 @@ void	sorting(t_list **stack_a, t_list **stack_b)
 		sa(stack_a);
 	else if (ft_lstsize(*stack_a) == 3)
 		sort_case_3(stack_a);
+	else if (ft_lstsize(*stack_a) == 5)
+		sort_case_5(stack_a, stack_b);
 	else if (ft_lstsize(*stack_a) <= 10)
 		sort_to_10(stack_a, stack_b);
 	else
