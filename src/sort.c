@@ -66,7 +66,7 @@ void	sort_case_5(t_list **stack_a, t_list **stack_b)
 		else
 			ra(stack_a);
 	}
-	pa(stack_a, stack_b);
+	pb(stack_a, stack_b);
 	min = get_min(stack_a);
 	while (*(int *)(*stack_a)->content != min)
 	{
@@ -75,10 +75,10 @@ void	sort_case_5(t_list **stack_a, t_list **stack_b)
 		else
 			ra(stack_a);
 	}
-	pa(stack_a, stack_b);
+	pb(stack_a, stack_b);
 	sort_case_3(stack_a);
-	pb(stack_b, stack_a);
-	pb(stack_b, stack_a);
+	pa(stack_b, stack_a);
+	pa(stack_b, stack_a);
 }
 
 void	sort_to_10(t_list **stack_a, t_list **stack_b)
@@ -97,6 +97,7 @@ void	sort_to_10(t_list **stack_a, t_list **stack_b)
 		else
 			ra(stack_a);
 	}
+	printf("PENE");
 	pb(stack_a, stack_b);
 	size_a--;
 	ft_lstsize(*stack_b);

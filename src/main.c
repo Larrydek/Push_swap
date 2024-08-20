@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 20:54:53 by jde-clee          #+#    #+#             */
-/*   Updated: 2024/08/20 17:48:39 by marvin           ###   ########.fr       */
+/*   Updated: 2024/08/20 19:27:06 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,11 @@ int	main(int argc, char **argv)
 		ft_free_matrix(char_nums, len_char_nums);
 	if (check_order(&stack_a) == 0)
 		sorting(&stack_a, &stack_b);
+	if (check_order(&stack_a) == 1)
+		printf("ORDENADOOO\n");
+	else
+		printf("TU VIEJA\n");
+	print_list(&stack_a);
 	ft_lstclear(&stack_a, free);
 	return (0);
 }
