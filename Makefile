@@ -15,26 +15,26 @@ PRINTF = $(PRINTF_DIR)/libftprintf.a
 all: $(NAME)
 
 $(LIBFT):
-	make -C $(LIBFT_DIR)
+	@make -sC $(LIBFT_DIR)
 
 $(PRINTF):
-	make -C $(PRINTF_DIR)
+	@make -sC $(PRINTF_DIR)
 
 $(NAME): $(MY_OBJS) $(LIBFT) $(PRINTF)
-	gcc $(CFLAGS) $(MY_OBJS) $(LIBFT) $(PRINTF) -o $(NAME)
+	@gcc $(CFLAGS) $(MY_OBJS) $(LIBFT) $(PRINTF) -o $(NAME)
 
 %.o: %.c
-	gcc $(CFLAGS) -I$(LIBFT_DIR) -I$(PRINTF_DIR) -c $< -o $@
+	@gcc $(CFLAGS) -I$(LIBFT_DIR) -I$(PRINTF_DIR) -c $< -o $@
 
 clean:
-	rm -f $(MY_OBJS)
-	make clean -C $(LIBFT_DIR)
-	make clean -C $(PRINTF_DIR)
+	@rm -f $(MY_OBJS)
+	@make clean -sC $(LIBFT_DIR)
+	@make clean -sC $(PRINTF_DIR)
 
 fclean: clean
-	rm -f $(NAME)
-	rm -f $(LIBFT)
-	rm -f $(PRINTF)
+	@rm -f $(NAME)
+	@rm -f $(LIBFT)
+	@rm -f $(PRINTF)
 
 re: fclean all
 

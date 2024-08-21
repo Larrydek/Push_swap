@@ -11,16 +11,16 @@ CFLAGS = -Wall -Wextra -Werror
 all: $(NAME)
 
 $(NAME): $(MY_OBJECTS)
-		$(LIB) $(NAME) $(MY_OBJECTS)
+		@$(LIB) $(NAME) $(MY_OBJECTS) 
 
 %.o: %.c
-	gcc $(CFLAGS) -c $< -o $@
+	@gcc $(CFLAGS) -c $< -o $@
 
 clean:
-	rm -f $(MY_OBJECTS)
+	@rm -f $(MY_OBJECTS)
 
 fclean: clean
-	rm -f $(NAME)
+	@rm -f $(NAME)
 
 re:     fclean all
 

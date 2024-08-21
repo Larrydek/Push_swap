@@ -34,12 +34,16 @@ int	arg_parser(char **char_nums, t_list **stack_a)
 	return (1);
 }
 
-char	**arg_cleaner(char **argv)
+char	**arg_cleaner(int argc, char **argv)
 {
 	char	**char_nums;
 	char	*aux;
 	int		i;
 
+	if (argc++ == 1)
+		exit(1);
+	else if (argc == 2)
+		error();
 	aux = ft_strdup(argv[1]);
 	i = 2;
 	while (argv[i])

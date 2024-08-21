@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jde-clee <jde-clee@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 19:22:48 by jde-clee          #+#    #+#             */
-/*   Updated: 2024/08/19 04:18:07 by jde-clee         ###   ########.fr       */
+/*   Updated: 2024/08/21 11:29:27 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,11 +51,11 @@ int	get_max(t_list **stack_a)
 	if (!stack_a || !*stack_a)
 		return (-1);
 	copy_stack = *stack_a;
-	num = *(int *)(copy_stack)->content;
+	num = copy_stack->index;
 	while ((copy_stack != NULL))
 	{
-		if (num < *(int *)(copy_stack)->content)
-			num = *(int *)(copy_stack)->content;
+		if (num < copy_stack->index)
+			num = copy_stack->index;
 		copy_stack = copy_stack->next;
 	}
 	return (num);

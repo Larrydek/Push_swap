@@ -6,6 +6,7 @@
         "string.h": "c",
         "unistd.h": "c",
         "ft_printf.h": "c",
-        "push_swap.h": "c"
+        "push_swap.h": "c",
+        "ratio": "c"
     }
 }

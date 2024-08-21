@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jde-clee <jde-clee@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 21:19:20 by jde-clee          #+#    #+#             */
-/*   Updated: 2024/08/19 04:13:25 by jde-clee         ###   ########.fr       */
+/*   Updated: 2024/08/21 13:54:56 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@
 
 //ARGS PARSER
 int		arg_parser(char **char_nums, t_list **stack_a);
-char	**arg_cleaner(char **argv);
+char	**arg_cleaner(int argc, char **argv);
 int		arg_checker(char **char_nums);
 int		check_duplicates(t_list **stack_a);
 void	print_list(t_list **stack);
@@ -55,5 +55,5 @@ int		get_max(t_list **stack_a);
 int		next_min_than(t_list **stack_a, int min);
 int		ft_is_in(t_list **stack, int num);
 void	print_list_indexes(t_list **stack);
-
+void	error(void);
 #endif

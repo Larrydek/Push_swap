@@ -97,7 +97,6 @@ void	sort_to_10(t_list **stack_a, t_list **stack_b)
 		else
 			ra(stack_a);
 	}
-	printf("PENE");
 	pb(stack_a, stack_b);
 	size_a--;
 	ft_lstsize(*stack_b);
@@ -122,17 +121,18 @@ void	sort_to_infinite(t_list **stack_a, t_list **stack_b)
 	{
 		if (!ft_is_in(stack_b, max_num))
 			max_num--;
-		else if (((*stack_b)->index) == (max_num - 1))
+		if (((*stack_b)->index) == (max_num - 1))
 		{
 			pa(stack_b, stack_a);
 			swap_flag = 1;
 		}
-		else if (((*stack_b)->index) == max_num)
+		if (((*stack_b)->index) == max_num)
 		{
 			pa(stack_b, stack_a);
 			if (swap_flag == 1)
 				sa(stack_a);
 			swap_flag = 0;
+			max_num = get_max(stack_b);
 		}
 		else
 			shortest_rotate(stack_b, max_num);
@@ -160,7 +160,7 @@ void	sorting(t_list **stack_a, t_list **stack_b)
 	{
 		if (ft_lstsize(*stack_a) <= 100)
 			chunk_size = ft_lstsize(*stack_a) / 6;
-		else if (ft_lstsize(*stack_a) <= 500)
+		else if (ft_lstsize(*stack_a) <= INT_MAX)
 			chunk_size = ft_lstsize(*stack_a) / 12;
 		chunking(stack_a, stack_b, chunk_size);
 		sort_to_infinite(stack_a, stack_b);
